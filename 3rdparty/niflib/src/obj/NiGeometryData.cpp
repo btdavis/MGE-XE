@@ -10,6 +10,8 @@ All rights reserved.  Please see niflib.h for license. */
 //--BEGIN FILE HEAD CUSTOM CODE--//
 //--END CUSTOM CODE--//
 
+#include <algorithm>
+
 #include "../../include/FixLink.h"
 #include "../../include/ObjectRegistry.h"
 #include "../../include/NIF_IO.h"
@@ -507,7 +509,7 @@ static void CalcCenteredSphere(const vector<Vector3>& vertices, Vector3& center,
 	for (size_t i=0; i<nv; ++i){
 		Vector3 diff = vertices[ i ] - center;
 		float mag = diff.Magnitude();
-		radius = max(radius, mag);
+		radius = std::max(radius, mag);
 	}
 }
 

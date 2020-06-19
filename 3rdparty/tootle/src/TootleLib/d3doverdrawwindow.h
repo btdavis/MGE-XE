@@ -11,7 +11,10 @@
 #include "d3dwindow.h"
 #include "soup.h"
 #include "feedback.h"
+
+#if defined(__clang__) || defined(__GNUC__)
 #include <mm_malloc.h>
+#endif
 
 class D3DOverdrawWindow : public D3DWindow
 {
