@@ -2,8 +2,8 @@ cmake_minimum_required (VERSION 2.6)
 
 project (MGEXE)
 
-include_directories ("${MGEXE_SOURCE_DIR}/src" "${MGEXE_SOURCE_DIR}/3rdparty/niflib/include" "${MGEXE_SOURCE_DIR}/3rdparty/tootle/src/TootleLib/include")
-link_directories ("${MGEXE_SOURCE_DIR}/lib")
+include_directories ("${MGEXE_SOURCE_DIR}/src" "${MGEXE_SOURCE_DIR}/3rdparty/niflib/include" "${MGEXE_SOURCE_DIR}/3rdparty/tootle/src/TootleLib/include" "$(DXSDK_DIR)/include")
+link_directories ("${MGEXE_SOURCE_DIR}/lib" "$(DXSDK_DIR)/lib/$(ProcessorArchitecture)")
 set (LIBRARY_OUTPUT_PATH "${MGEXE_BINARY_DIR}/bin")
 
 # d3d8.dll, to be installed to Morrowind directory
@@ -29,7 +29,7 @@ set (TootleSrc 3rdparty/tootle/src/TootleLib/aligned_malloc.cpp 3rdparty/tootle/
 
 add_library (MGEfuncs SHARED MGEfuncs/NifConverter.cpp MGEfuncs/progmesh/CollapseTriangle.cpp MGEfuncs/progmesh/CollapseVertex.cpp MGEfuncs/progmesh/Progmesh.cpp MGEfuncs/exports.def ${NiflibSrc} ${NiflibSrc2} ${NiflibSrc3} ${TootleSrc})
 target_link_libraries (MGEfuncs kernel32 user32 d3d9 d3dx9)
-set_target_properties (MGEfuncs PROPERTIES COMPILE_DEFINITIONS "BUILD_DLL;NIFLIB_STATIC_LINK")
+set_target_properties (MGEfuncs PROPERTIES COMPILE_DEFINITIONS "BUILD_DLL;NIFLIB_STATIC_LINK;NOMINMAX")
 
 # Make sure dll does not have lib- prefix
 set_target_properties (d3d8 dinput8 MGEfuncs PROPERTIES PREFIX "")
