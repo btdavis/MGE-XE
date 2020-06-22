@@ -215,7 +215,7 @@ namespace MGEgui {
         public const string fn_stattex = "Data files/distantland/statics/textures";
         public const string pathShaders = @"data files\shaders\XEshaders";
         /* registry keys */
-        public const string reg_mw = @"Software\Bethesda Softworks\Morrowind";
+        public const string reg_mw = @"SOFTWARE\WOW6432Node\Bethesda Softworks\Morrowind";
 
         public static string runDir;
 
@@ -280,7 +280,7 @@ namespace MGEgui {
             // Damn .NET text rendering
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Directory.SetCurrentDirectory(System.IO.Path.GetDirectoryName(Application.ExecutablePath));
+            //Directory.SetCurrentDirectory(System.IO.Path.GetDirectoryName(Application.ExecutablePath));
 
             Localizations = new LocalizationInterface();
             try {

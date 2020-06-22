@@ -1,8 +1,8 @@
 using System;
 using System.Windows.Forms;
-using SlimDX;
-using SlimDX.Direct3D9;
-using TexCache = System.Collections.Generic.Dictionary<string, SlimDX.Direct3D9.Texture>;
+using SharpDX;
+using SharpDX.Direct3D9;
+using TexCache = System.Collections.Generic.Dictionary<string, SharpDX.Direct3D9.Texture>;
 using MGEgui.DistantLand;
 
 namespace MGEgui.DirectX {
@@ -12,7 +12,7 @@ namespace MGEgui.DirectX {
         public static void ReleaseCache() {
             foreach (Texture t in texCache.Values) {
                 try {
-                    if (!t.Disposed) {
+                    if (!t.IsDisposed) {
                         t.Dispose();
                     }
                 } catch {
@@ -111,7 +111,7 @@ namespace MGEgui.DirectX {
 
             try {
                 imginfo = ImageInformation.FromMemory(data);
-            } catch (SlimDXException) {
+            } catch (SharpDXException) {
                 return false;
             }
 
@@ -156,7 +156,7 @@ namespace MGEgui.DirectX {
                     }
                     Texture.ToFile(t, System.IO.Path.Combine(@"data files\distantland\statics\textures\", path), ImageFileFormat.Dds);
                     t.Dispose();
-                } catch (SlimDXException) {
+                } catch (SharpDXException) {
                     if (t != null) {
                         t.Dispose();
                     }
@@ -758,7 +758,7 @@ namespace MGEgui.DirectX {
         }*/
 
         public void Render(float pos_x, float pos_y, float scale_x, float scale_y) {
-            SlimDX.Matrix mat = SlimDX.Matrix.Identity;
+            SharpDX.Matrix mat = SharpDX.Matrix.Identity;
             mat.M41 = pos_x;
             mat.M42 = pos_y;
             mat.M11 = scale_x;
@@ -789,7 +789,7 @@ namespace MGEgui.DirectX {
                 DXMain.device.BeginScene();
                 effect.Begin(FX.None);
                 effect.BeginPass(0);
-                DXMain.device.DrawIndexedPrimitives(PrimitiveType.TriangleStrip, 0, 0, 4225, 0, 8444);
+                DXMain.device.DrawIndexedPrimitive(PrimitiveType.TriangleStrip, 0, 0, 4225, 0, 8444);
                 effect.EndPass();
                 effect.End();
                 DXMain.device.EndScene();
@@ -798,7 +798,7 @@ namespace MGEgui.DirectX {
             DXMain.device.BeginScene();
             effect.Begin(FX.None);
             effect.BeginPass(2);
-            DXMain.device.DrawIndexedPrimitives(PrimitiveType.TriangleStrip, 0, 0, 4225, 0, 8444);
+            DXMain.device.DrawIndexedPrimitive(PrimitiveType.TriangleStrip, 0, 0, 4225, 0, 8444);
             effect.EndPass();
             effect.End();
             DXMain.device.EndScene();
@@ -807,7 +807,7 @@ namespace MGEgui.DirectX {
 
 
         public void RenderNormalMap(float pos_x, float pos_y, float scale_x, float scale_y) {
-            SlimDX.Matrix mat = SlimDX.Matrix.Identity;
+            SharpDX.Matrix mat = SharpDX.Matrix.Identity;
             mat.M41 = pos_x;
             mat.M42 = pos_y;
             mat.M11 = scale_x;
@@ -819,7 +819,7 @@ namespace MGEgui.DirectX {
             DXMain.device.BeginScene();
             effect.Begin(FX.None);
             effect.BeginPass(1);
-            DXMain.device.DrawIndexedPrimitives(PrimitiveType.TriangleStrip, 0, 0, 4225, 0, 8444);
+            DXMain.device.DrawIndexedPrimitive(PrimitiveType.TriangleStrip, 0, 0, 4225, 0, 8444);
             effect.EndPass();
             effect.End();
             DXMain.device.EndScene();
@@ -852,6 +852,7 @@ namespace MGEgui.DirectX {
 
     class WorldTexCreator {
         private const string DefaultTex = @"data files\distantland\default.dds";
+        private static SharpDX.Mathematics.Interop.RawColorBGRA ClearColor = new SharpDX.Mathematics.Interop.RawColorBGRA(0, 0, 0, 0);
 
         private Texture CompressedTex;
         private Texture UncompressedTex;
@@ -888,7 +889,7 @@ namespace MGEgui.DirectX {
             }
             rt.Dispose();
 
-            DXMain.device.Clear(ClearFlags.Target, 0, 0.0f, 0);
+            DXMain.device.Clear(ClearFlags.Target, ClearColor, 0.0f, 0);
         }
 
         public void FinishCompressed(string path, bool isSRGB) {

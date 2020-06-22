@@ -998,7 +998,7 @@ namespace MGEgui.DistantLand {
             }
             backgroundWorker.ReportProgress(3, strings["StaticsGenerate3"]);
             unsafe {
-                NativeMethods.BeginStaticCreation((IntPtr)DXMain.device.ComPointer, Statics.fn_statmesh);
+                NativeMethods.BeginStaticCreation(DXMain.device.NativePointer, Statics.fn_statmesh);
             }
             Random rnd = new Random();
             try {
@@ -1279,7 +1279,7 @@ namespace MGEgui.DistantLand {
                 br.Close();
             }
             unsafe {
-                NativeMethods.BeginStaticCreation((IntPtr)DXMain.device.ComPointer, null);
+                NativeMethods.BeginStaticCreation(DXMain.device.NativePointer, null);
             }
             List<string> refsToRemove = new List<string>();
             foreach (KeyValuePair<string, Static> pair in StaticsList) {

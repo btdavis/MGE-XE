@@ -2,8 +2,8 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using SlimDX.RawInput;
-using SlimDX.Multimedia;
+using SharpDX.RawInput;
+using SharpDX.Multimedia;
 
 
 
@@ -114,7 +114,7 @@ namespace MGEgui {
         }
 
         private void RemapDialog_Load(object sender, EventArgs e) {
-            Device.RegisterDevice(UsagePage.Generic, UsageId.Keyboard, DeviceFlags.None);
+            Device.RegisterDevice(UsagePage.Generic, UsageId.GenericKeyboard, DeviceFlags.None);
             Device.KeyboardInput += remap_input;
         }
     }

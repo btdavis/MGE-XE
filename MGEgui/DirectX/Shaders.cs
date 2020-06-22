@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using SlimDX;
-using SlimDX.Direct3D9;
+using SharpDX;
+using SharpDX.Direct3D9;
 using MGEgui.INI;
 
 namespace MGEgui.DirectX {
@@ -20,6 +20,8 @@ namespace MGEgui.DirectX {
         private static int frameWidth, frameHeight;
         private static VertexBuffer vBuffer;
         private static Int64 basetime;
+
+        private static SharpDX.Mathematics.Interop.RawColorBGRA ClearColor = new SharpDX.Mathematics.Interop.RawColorBGRA(0, 0, 0, 255);
 
         private struct GenericVertex {
             float x, y, z, w;
@@ -237,15 +239,14 @@ namespace MGEgui.DirectX {
             Reset();
 
             Effect effect;
-            string errors = null;
             try {
-                effect = Effect.FromFile(DXMain.device, shaderpath, null, null, null, ShaderFlags.None, null, out errors);
+                effect = Effect.FromFile(DXMain.device, shaderpath, null, null, null, ShaderFlags.None, null);
                 if (effect == null) {
                     throw new ApplicationException();
                 }
-            } catch {
-                if (errors != null) {
-                    return errors.Replace("\n", Environment.NewLine);
+            } catch (Exception ex) {
+                if (ex.Message != null) {
+                    return ex.Message.Replace("\n", Environment.NewLine);
                 } else {
                     return "Effect load failed";
                 }
@@ -310,7 +311,7 @@ namespace MGEgui.DirectX {
         }
 
         internal static void RenderFrame(bool UseShader, decimal HDR_val) {
-            DXMain.device.Clear(ClearFlags.Target, 255, 0, 0);
+            DXMain.device.Clear(ClearFlags.Target, ClearColor, 0, 0);
             if (UseShader) {
                 for (int i = 0; i < 6; i++) {
                     DXMain.device.SetTexture(i, lastShader);

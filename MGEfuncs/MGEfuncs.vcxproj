@@ -1,0 +1,798 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F826718A-2F79-3CB4-8538-9B33AD40D901}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>MGEfuncs</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MGEfuncs</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MGEfuncs</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MGEfuncs</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MGEfuncs</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\src;..\3rdparty\niflib\include;..\3rdparty\tootle\src\TootleLib\include;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Debug";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Debug\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./lib;./lib/$(Configuration);$(DXSDK_DIR)/lib/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>bin/Debug/MGEfuncs.lib</ImportLibrary>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>bin/Debug/MGEfuncs.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>bin/$(Configuration)/$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\src;..\3rdparty\niflib\include;..\3rdparty\tootle\src\TootleLib\include;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Debug";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Debug\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./lib;./lib/$(Configuration);$(DXSDK_DIR)/lib/x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>bin/Debug/MGEfuncs.lib</ImportLibrary>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>bin/Debug/MGEfuncs.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>bin/$(Configuration)/$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\src;..\3rdparty\niflib\include;..\3rdparty\tootle\src\TootleLib\include;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Release";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Release\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./lib;./lib/$(Configuration);$(DXSDK_DIR)/lib/$(ProcessorArchitecture);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>bin/Release/MGEfuncs.lib</ImportLibrary>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>bin/Release/MGEfuncs.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>bin/$(Configuration)/$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\src;..\3rdparty\niflib\include;..\3rdparty\tootle\src\TootleLib\include;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Release";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Release\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./lib;./lib/$(Configuration);$(DXSDK_DIR)/lib/x64;$(ProcessorArchitecture);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>bin/Release/MGEfuncs.lib</ImportLibrary>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>bin/Release/MGEfuncs.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>bin/$(Configuration)/$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="NifConverter.cpp" />
+    <ClCompile Include="progmesh\CollapseTriangle.cpp" />
+    <ClCompile Include="progmesh\CollapseVertex.cpp" />
+    <ClCompile Include="progmesh\ProgMesh.cpp" />
+    <None Include="exports.def" />
+    <ClCompile Include="..\3rdparty\niflib\NvTriStrip\NvTriStrip.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\NvTriStrip\NvTriStripObjects.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\NvTriStrip\VertexCache.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\AnimSequence.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\ComplexShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\Inertia.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\kfm.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\MatTexCollection.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\niflib.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\NIF_IO.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\nif_math.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\ObjectRegistry.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\pch.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\RefObject.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\Type.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\AdditionalDataBlock.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\AdditionalDataInfo.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ArkTexture.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\AVObject.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BodyPartList.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BoneLOD.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BoundingBox.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BoundingVolume.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BoxBV.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BSPackedAdditionalDataBlock.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BSSegment.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BSSegmentedTriangle.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BSTreadTransfInfo.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BSTreadTransform.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BSTreadTransformData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\BSTreadTransfSubInfo.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ByteArray.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ByteColor3.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ByteColor4.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ByteMatrix.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\CapsuleBV.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ChannelData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ControllerLink.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\DecalVectorArray.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ElementReference.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\enums.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ExportInfo.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ExtraMeshDataEpicMickey.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ExtraMeshDataEpicMickey2.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\Footer.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\FurniturePosition.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\HalfSpaceBV.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\Header.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\HingeDescriptor.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\LimitedHingeDescriptor.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\LODRange.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MatchGroup.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MaterialData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MeshData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MipMap.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\Morph.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MorphWeight.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MotorDescriptor.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MTransform.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\MultiTextureElement.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\NodeGroup.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\OblivionColFilter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\OblivionSubShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\OldSkinData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\Particle.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ParticleDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\physXMaterialRef.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\Polygon.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\QTransform.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\QuaternionXYZW.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\RagdollDescriptor.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\Region.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\register.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SemanticData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\ShaderTexDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SkinData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SkinPartition.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SkinPartitionUnknownItem1.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SkinShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SkinShapeGroup.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SkinTransform.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SkinWeight.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\Sphere.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\SphereBV.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\StringPalette.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\TBC.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\TexDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\TexSource.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\UnionBV.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\gen\UnknownMatrix1.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\AbstractAdditionalGeometryData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\ATextureRenderData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\AvoidNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSAnimNotes.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSBehaviorGraphExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSBlastNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSBoneLODExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSBound.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSDamageStage.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSDebrisNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSDecalPlacementVectorExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSDismemberSkinInstance.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSDistantTreeShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSEffectShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSEffectShaderPropertyColorController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSEffectShaderPropertyFloatController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSFadeNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSFrustumFOVController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSFurnitureMarker.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSFurnitureMarkerNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSInvMarker.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSKeyframeController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSLagBoneController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSLeafAnimNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSLightingShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSLightingShaderPropertyColorController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSLightingShaderPropertyFloatController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSLODTriShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMasterParticleSystem.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMaterialEmittanceMultController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMultiBound.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMultiBoundAABB.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMultiBoundData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMultiBoundNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMultiBoundOBB.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSMultiBoundSphere.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSNiAlphaPropertyTestRefController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSOrderedNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPackedAdditionalGeometryData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSParentVelocityModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSProceduralLightningController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysArrayEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysHavokUpdateModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysInheritVelocityModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysLODModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysMultiTargetEmitterCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysRecycleBoundModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysScaleModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysSimpleColorModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysStripUpdateModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSPSysSubTexModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSRefractionFirePeriodController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSRefractionStrengthController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSRotAccumTransfInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSSegmentedTriShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSShaderLightingProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSShaderNoLightingProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSShaderPPLightingProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSShaderTextureSet.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSSkyShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSStripParticleSystem.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSStripPSysData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSTreadTransfInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSTreeNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSValueNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSWArray.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSWaterShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSWindModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\BSXFlags.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\CStreamableAssetData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\DistantLODShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\FxButton.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\FxRadioButton.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\FxWidget.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\HairShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\Lighting30ShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\Ni3dsAlphaAnimator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\Ni3dsAnimationNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\Ni3dsColorAnimator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\Ni3dsMorphShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\Ni3dsParticleSystem.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\Ni3dsPathController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAdditionalGeometryData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAlphaController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAlphaProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAmbientLight.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiArkAnimationExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiArkImporterExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiArkShaderExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiArkTextureExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiArkViewportInfoExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAutoNormalParticles.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAutoNormalParticlesData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAVObject.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiAVObjectPalette.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBezierMesh.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBezierTriangle4.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBillboardNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBinaryExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBinaryVoxelData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBinaryVoxelExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBlendBoolInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBlendFloatInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBlendInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBlendPoint3Interpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBlendTransformInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBone.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBoneLODController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBoolData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBooleanExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBoolInterpController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBoolInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBoolTimelineInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSAnimationNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSBoneLODController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSPArrayController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSParticleNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineBasisData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineCompFloatInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineCompPoint3Interpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineCompTransformEvaluator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineCompTransformInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineFloatInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplinePoint3Interpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiBSplineTransformInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiCamera.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiClod.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiClodData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiClodSkinInstance.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiCollisionData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiCollisionObject.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiColorData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiColorExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiControllerManager.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiControllerSequence.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiDataStream.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiDefaultAVObjectPalette.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiDirectionalLight.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiDitherProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiDynamicEffect.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiEnvMappedTriShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiEnvMappedTriShapeData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiExtraDataController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFlipController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFloatData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFloatExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFloatExtraDataController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFloatInterpController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFloatInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFloatsExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFogProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiFurSpringController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiGeometry.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiGeometryData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiGeomMorpherController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiGravity.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiImage.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiInstancingMeshModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiIntegerExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiIntegersExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiInterpController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiKeyBasedInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiKeyframeController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiKeyframeData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLight.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLightColorController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLightDimmerController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLightIntensityController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLines.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLinesData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLODData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLODNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLookAtController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiLookAtInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMaterialColorController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMaterialProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMesh.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMeshHWInstance.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMeshModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMeshParticleSystem.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMeshPSysData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMorphController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMorphData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMorpherController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMorphMeshModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMorphWeightsController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMultiTargetTransformController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiMultiTextureProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiObject.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiObjectNET.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPalette.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleBomb.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleColorModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleGrowFade.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleMeshes.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleMeshesData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleMeshModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleRotation.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticles.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticlesData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleSystem.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiParticleSystemController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPathController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPathInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPersistentSrcTextureRendererData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXActorDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXBodyDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXD6JointDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXKinematicSrc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXMaterialDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXMeshDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXProp.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXPropDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXShapeDesc.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPhysXTransformDest.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPixelData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPlanarCollider.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPoint3InterpController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPoint3Interpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPointLight.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPortal.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPosData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSBombForce.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSBoundUpdater.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSBoxEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSCylinderEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSDragForce.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitParticlesCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterDeclinationCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterDeclinationVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterLifeSpanCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterPlanarAngleCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterPlanarAngleVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterRadiusCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterRotAngleCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterRotAngleVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterRotSpeedCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterRotSpeedVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSEmitterSpeedCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSFacingQuadGenerator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSForceActiveCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSGravityForce.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSGravityStrengthCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSMeshEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSMeshParticleSystem.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSParticleSystem.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSPlanarCollider.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSResetOnLoopCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSimulator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSimulatorCollidersStep.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSimulatorFinalStep.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSimulatorForcesStep.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSimulatorGeneralStep.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSimulatorMeshAlignStep.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSimulatorStep.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSpawner.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSphereEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSSphericalCollider.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysAgeDeathModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysAirFieldAirFrictionCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysAirFieldInheritVelocityCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysAirFieldModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysAirFieldSpreadCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysBombModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysBoundUpdateModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysBoxEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysCollider.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysColliderManager.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysColorModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysCylinderEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysDragFieldModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysDragModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterCtlrData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterDeclinationCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterDeclinationVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterInitialRadiusCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterLifeSpanCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterPlanarAngleCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterPlanarAngleVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysEmitterSpeedCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysFieldAttenuationCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysFieldMagnitudeCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysFieldMaxDistanceCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysFieldModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysGravityFieldModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysGravityModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysGravityStrengthCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysGrowFadeModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysInitialRotAngleCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysInitialRotAngleVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysInitialRotSpeedCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysInitialRotSpeedVarCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysMeshEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysMeshUpdateModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysModifierActiveCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysModifierBoolCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysModifierCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysModifierFloatCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysPlanarCollider.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysPositionModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysRadialFieldModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysResetOnLoopCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysRotationModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysSpawnModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysSphereEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysSphericalCollider.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysTrailEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysTurbulenceFieldModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysUpdateCtlr.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysVolumeEmitter.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiPSysVortexFieldModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRangeLODData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRawImageData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRenderObject.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRollController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRoom.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRoomGroup.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRotatingParticles.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiRotatingParticlesData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiScreenElements.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiScreenElementsData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiScreenLODData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSequence.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSequenceData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSequenceStreamHelper.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiShadeProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiShadowGenerator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSingleInterpController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSkinData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSkinInstance.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSkinningLODController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSkinningMeshModifier.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSkinPartition.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSortAdjustNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSourceCubeMap.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSourceTexture.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSpecularProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSphericalCollider.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSpotLight.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiStencilProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiStringExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiStringPalette.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiStringsExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiSwitchNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTextKeyExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTexture.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTextureEffect.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTextureModeProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTextureProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTextureTransformController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTexturingProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTimeController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTransformController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTransformData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTransformEvaluator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTransformInterpolator.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTransparentProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTriBasedGeom.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTriBasedGeomData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTriShape.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTriShapeData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTriShapeSkinController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTriStrips.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiTriStripsData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiUVController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiUVData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiVectorExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiVertexColorProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiVertWeightsExtraData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiVisController.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiVisData.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiWireframeProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\NiZBufferProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\RootCollisionNode.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\SkyShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\TallGrassShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\TileShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\VolumetricFogShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\src\obj\WaterShaderProperty.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\TriStripper\connectivity_graph.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\TriStripper\policy.cpp" />
+    <ClCompile Include="..\3rdparty\niflib\TriStripper\tri_stripper.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\aligned_malloc.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\clustering.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\d3doverdrawwindow.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\d3dwm.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\error.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\feedback.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\fit.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\gdiwm.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\heap.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\overdraw.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\soup.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\souptomesh.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\Stripifier.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\Timer.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\tootlelib.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\triorder.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\TootleRaytracer.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTBoundingBox.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTCamera.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTCore.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTCoreUtils.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTH2KDTreeBuilder.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTHeuristicKDTreeBuilder.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTKDTree.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTKDTreeBuilder.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTMesh.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTOrthoCamera.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTPPMImage.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\JRT\JRTTriangleIntersection.cpp" />
+    <ClCompile Include="..\3rdparty\tootle\src\TootleLib\RayTracer\Math\JMLFuncs.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,8 +1,8 @@
 using System;
 using Point = System.Drawing.Point;
 using Control = System.Windows.Forms.Control;
-using SlimDX;
-using SlimDX.Direct3D9;
+using SharpDX;
+using SharpDX.Direct3D9;
 
 namespace MGEgui.DirectX {
     static class DXMain {
@@ -43,7 +43,7 @@ namespace MGEgui.DirectX {
             devParams.BackBufferWidth = 960;
             devParams.BackBufferHeight = 540;
             devParams.EnableAutoDepthStencil = false;
-            devParams.Multisample = MultisampleType.None;
+            devParams.MultiSampleType = MultisampleType.None;
             devParams.SwapEffect = SwapEffect.Discard;
             devParams.Windowed = true;
             devParams.PresentationInterval = PresentInterval.One;
