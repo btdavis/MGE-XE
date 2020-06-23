@@ -49,13 +49,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -74,10 +76,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NDEBUG;NOMINMAX;CMAKE_INTDIR=\"Debug\";d3d8_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdparty\niflib\include;$(SolutionDir)\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdparty\niflib\include;$(SolutionDir)\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -86,15 +88,12 @@
     </Midl>
     <Link>
       <AdditionalDependencies>kernel32.lib;gdi32.lib;user32.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>./lib;./lib/$(Configuration);$(DXSDK_DIR)/lib/x86</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)/lib/x86</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>bin/Debug/d3d8.lib</ImportLibrary>
-      <ModuleDefinitionFile>./src/exports.def</ModuleDefinitionFile>
-      <ProgramDataBaseFile>bin/Debug/d3d8.pdb</ProgramDataBaseFile>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
       <SubSystem>Console</SubSystem>
-      <OutputFile>bin/$(Configuration)/$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -102,7 +101,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -119,10 +118,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NOMINMAX;CMAKE_INTDIR=\"Release\";d3d8_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdparty\niflib\include;$(SolutionDir)\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>.\src;.\3rdparty\niflib\include;.\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdparty\niflib\include;$(SolutionDir)\3rdparty\tootle\src\TootleLib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -131,69 +130,66 @@
     </Midl>
     <Link>
       <AdditionalDependencies>kernel32.lib;gdi32.lib;user32.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>./lib;./lib/$(Configuration);$(DXSDK_DIR)/lib/$(ProcessorArchitecture)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)/lib/x86</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>bin/Release/d3d8.lib</ImportLibrary>
-      <ModuleDefinitionFile>./src/exports.def</ModuleDefinitionFile>
-      <ProgramDataBaseFile>bin/Release/d3d8.pdb</ProgramDataBaseFile>
+      <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
       <SubSystem>Console</SubSystem>
-      <OutputFile>bin/$(Configuration)/$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\support\log.cpp" />
-    <ClCompile Include="src\support\pngsave.cpp" />
-    <ClCompile Include="src\support\timing.cpp" />
-    <ClCompile Include="src\mge\dlmath.cpp" />
-    <ClCompile Include="src\mge\memorypool.cpp" />
-    <ClCompile Include="src\mge\morrowindbsa.cpp" />
-    <ClCompile Include="src\mge\configuration.cpp" />
-    <ClCompile Include="src\mge\distantinit.cpp" />
-    <ClCompile Include="src\mge\distantland.cpp" />
-    <ClCompile Include="src\mge\ffeshader.cpp" />
-    <ClCompile Include="src\mge\macrofunctions.cpp" />
-    <ClCompile Include="src\mge\mged3d8device.cpp" />
-    <ClCompile Include="src\mge\mgedinput.cpp" />
-    <ClCompile Include="src\mge\mgedirect3d8.cpp" />
-    <ClCompile Include="src\mge\mgedxwrap.cpp" />
-    <ClCompile Include="src\mge\mwbridge.cpp" />
-    <ClCompile Include="src\mge\postshaders.cpp" />
-    <ClCompile Include="src\mge\quadtree.cpp" />
-    <ClCompile Include="src\mge\renderdepth.cpp" />
-    <ClCompile Include="src\mge\renderexterior.cpp" />
-    <ClCompile Include="src\mge\rendergrass.cpp" />
-    <ClCompile Include="src\mge\rendershadow.cpp" />
-    <ClCompile Include="src\mge\renderwater.cpp" />
-    <ClCompile Include="src\mge\statusoverlay.cpp" />
-    <ClCompile Include="src\mge\userhud.cpp" />
-    <ClCompile Include="src\mge\videobackground.cpp" />
-    <ClCompile Include="src\mge\specificrender.cpp" />
-    <ClCompile Include="src\mge\mwinitpatch.cpp" />
-    <ClCompile Include="src\mwse\funcgeneral.cpp" />
-    <ClCompile Include="src\mwse\funcgmst.cpp" />
-    <ClCompile Include="src\mwse\funchud.cpp" />
-    <ClCompile Include="src\mwse\funcweather.cpp" />
-    <ClCompile Include="src\mwse\funcshader.cpp" />
-    <ClCompile Include="src\mwse\funccamera.cpp" />
-    <ClCompile Include="src\mwse\funcinput.cpp" />
-    <ClCompile Include="src\mwse\funcentity.cpp" />
-    <ClCompile Include="src\mwse\funcmwui.cpp" />
-    <ClCompile Include="src\mwse\funcphysics.cpp" />
-    <ClCompile Include="src\mwse\mgebridge.cpp" />
-    <ClCompile Include="src\mwse\mwseinstruction.cpp" />
-    <ClCompile Include="src\proxydx\d3d8device.cpp" />
-    <ClCompile Include="src\proxydx\d3d8surface.cpp" />
-    <ClCompile Include="src\proxydx\d3d8texture.cpp" />
-    <ClCompile Include="src\proxydx\dinput8.cpp" />
-    <ClCompile Include="src\proxydx\direct3d8.cpp" />
-    <ClCompile Include="src\proxydx\dxguid.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <None Include="src\exports.def" />
+    <ClCompile Include="support\log.cpp" />
+    <ClCompile Include="support\pngsave.cpp" />
+    <ClCompile Include="support\timing.cpp" />
+    <ClCompile Include="mge\dlmath.cpp" />
+    <ClCompile Include="mge\memorypool.cpp" />
+    <ClCompile Include="mge\morrowindbsa.cpp" />
+    <ClCompile Include="mge\configuration.cpp" />
+    <ClCompile Include="mge\distantinit.cpp" />
+    <ClCompile Include="mge\distantland.cpp" />
+    <ClCompile Include="mge\ffeshader.cpp" />
+    <ClCompile Include="mge\macrofunctions.cpp" />
+    <ClCompile Include="mge\mged3d8device.cpp" />
+    <ClCompile Include="mge\mgedinput.cpp" />
+    <ClCompile Include="mge\mgedirect3d8.cpp" />
+    <ClCompile Include="mge\mgedxwrap.cpp" />
+    <ClCompile Include="mge\mwbridge.cpp" />
+    <ClCompile Include="mge\postshaders.cpp" />
+    <ClCompile Include="mge\quadtree.cpp" />
+    <ClCompile Include="mge\renderdepth.cpp" />
+    <ClCompile Include="mge\renderexterior.cpp" />
+    <ClCompile Include="mge\rendergrass.cpp" />
+    <ClCompile Include="mge\rendershadow.cpp" />
+    <ClCompile Include="mge\renderwater.cpp" />
+    <ClCompile Include="mge\statusoverlay.cpp" />
+    <ClCompile Include="mge\userhud.cpp" />
+    <ClCompile Include="mge\videobackground.cpp" />
+    <ClCompile Include="mge\specificrender.cpp" />
+    <ClCompile Include="mge\mwinitpatch.cpp" />
+    <ClCompile Include="mwse\funcgeneral.cpp" />
+    <ClCompile Include="mwse\funcgmst.cpp" />
+    <ClCompile Include="mwse\funchud.cpp" />
+    <ClCompile Include="mwse\funcweather.cpp" />
+    <ClCompile Include="mwse\funcshader.cpp" />
+    <ClCompile Include="mwse\funccamera.cpp" />
+    <ClCompile Include="mwse\funcinput.cpp" />
+    <ClCompile Include="mwse\funcentity.cpp" />
+    <ClCompile Include="mwse\funcmwui.cpp" />
+    <ClCompile Include="mwse\funcphysics.cpp" />
+    <ClCompile Include="mwse\mgebridge.cpp" />
+    <ClCompile Include="mwse\mwseinstruction.cpp" />
+    <ClCompile Include="proxydx\d3d8device.cpp" />
+    <ClCompile Include="proxydx\d3d8surface.cpp" />
+    <ClCompile Include="proxydx\d3d8texture.cpp" />
+    <ClCompile Include="proxydx\dinput8.cpp" />
+    <ClCompile Include="proxydx\direct3d8.cpp" />
+    <ClCompile Include="proxydx\dxguid.cpp" />
+    <ClCompile Include="main.cpp" />
+    <None Include="exports.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
