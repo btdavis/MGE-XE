@@ -1116,8 +1116,8 @@ public:
         // Figure which height values to sample.
         size_t low_x, high_x, low_y, high_y;
 
-        float data_x = (0.0f - left + x) / (right - left) * (float)data_width;
-        float data_y = (0.0f - bottom + y) / (top - bottom) * (float)data_height;
+        double data_x = (0.0 - left + x) * (double)data_width / ((double)right - left);
+        double data_y = (0.0 - bottom + y) * (double)data_height / ((double)top - bottom);
 
         low_x = (size_t)floor(data_x);
         high_x = (size_t)ceil(data_x);
@@ -1721,19 +1721,35 @@ public:
 
 extern "C" void TessellateLandscape( char* file_path, float* height_data, unsigned int data_height, unsigned int data_width, float top, float left, float bottom, float right, float error_tolerance) {
 
+    if (top < bottom)
+    {
+        std::swap(top, bottom);
+    }
+
+    if (right < left)
+    {
+        std::swap(right, left);
+    }
+
     // Create sampler
     HeightFieldSampler sampler( height_data, data_height, data_width, top, left, bottom, right );
 
     // Create patches
-    size_t patches_across = (size_t)floor( ((float)data_width) / 256.0f + 0.5f );
-    size_t patches_down = (size_t)floor( ((float)data_height) / 256.0f + 0.5f );
+    float patch_width = 32768.0f;
+    float patch_height = 32768.0f;
 
-    float patch_width = (right - left) / (float)patches_across;
-    float patch_height = (top - bottom) / (float)patches_down;
+    // align patches the same regardless of actual world bounds
+    float patches_bottom = floor(bottom / patch_height) * patch_height;
+    float patches_top = ceil(top / patch_height) * patch_height;
+    float patches_left = floor(left / patch_width) * patch_width;
+    float patches_right = ceil(right / patch_width) * patch_width;
+
+    size_t patches_down = (patches_top - patches_bottom) / patch_height;
+    size_t patches_across = (patches_right - patches_left) / patch_width;
 
     vector<RoamLandPatch> patches;
 
-    Vector3 corner(left, bottom, 0.0f);
+    Vector3 corner(patches_left, patches_bottom, 0.0f);
 
     // Fill in patch data
     patches.resize( patches_across * patches_down );
@@ -1753,7 +1769,7 @@ extern "C" void TessellateLandscape( char* file_path, float* height_data, unsign
         }
         // Move the corner up and back to the left edge for the next patch
         corner.y += patch_height;
-        corner.x = left;
+        corner.x = patches_left;
     }
 
     // Connect neighboring patches
