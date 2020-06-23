@@ -579,10 +579,11 @@ namespace MGEgui {
             iniFile.setKey("PPLightingFlags", cmbPerPixelLightFlags.SelectedIndex);
             iniFile.save();
             try {
-                RegistryKey key = Registry.LocalMachine.OpenSubKey(Statics.reg_mw, true);
-                if (key != null) {
-                    key.SetValue("Pixelshader", new byte [] { Convert.ToByte(cbDisableMGE.Checked) });
-                    key.Close();
+                using (RegistryKey key = Statics.OpenMwRegKey(true)) {
+                    if (key != null)
+                    {
+                        key.SetValue("Pixelshader", new byte[] { Convert.ToByte(cbDisableMGE.Checked) });
+                    }
                 }
             } catch {
             }
@@ -879,30 +880,31 @@ namespace MGEgui {
         }
 
         private void LoadSettings() {
-            RegistryKey key = Registry.LocalMachine.CreateSubKey(Statics.reg_mw);
             int width, height;
-            try {
-                width = (int)key.GetValue("Screen Width");
-                height = (int)key.GetValue("Screen Height");
-            } catch {
-                // If Morrowind hasn't run yet, no keys exist
-                Rectangle screen = Screen.FromControl(this).Bounds;
-                width = screen.Width;
-                height = screen.Height;
-                key.SetValue("Screen Width", width);
-                key.SetValue("Screen Height", height);
-                key.SetValue("Refresh Rate", 0);
-                key.SetValue("Fullscreen", new byte[] { (byte)1 });
+
+            using (RegistryKey key = Statics.OpenMwRegKey()) {
+                try {
+                    width = (int)key.GetValue("Screen Width");
+                    height = (int)key.GetValue("Screen Height");
+                } catch {
+                    // If Morrowind hasn't run yet, no keys exist
+                    Rectangle screen = Screen.FromControl(this).Bounds;
+                    width = screen.Width;
+                    height = screen.Height;
+                    key.SetValue("Screen Width", width);
+                    key.SetValue("Screen Height", height);
+                    key.SetValue("Refresh Rate", 0);
+                    key.SetValue("Fullscreen", new byte[] { (byte)1 });
+                }
+                tbResolution.Text = width.ToString() + " x " + height.ToString();
+                CalcAspectRatio(width, height);
+                try {
+                    cbWindowed.Checked = !Convert.ToBoolean(((byte[])key.GetValue("Fullscreen"))[0]);
+                } catch {
+                    MessageBox.Show(strings["RegWinMode"], Statics.strings["Error"]);
+                    cbWindowed.Checked = false;
+                }
             }
-            tbResolution.Text = width.ToString() + " x " + height.ToString();
-            CalcAspectRatio(width, height);
-            try {
-                cbWindowed.Checked = !Convert.ToBoolean(((byte[])key.GetValue("Fullscreen"))[0]);
-            } catch {
-                MessageBox.Show(strings["RegWinMode"], Statics.strings["Error"]);
-                cbWindowed.Checked = false;
-            }
-            key.Close();
 
             LoadGraphicsSettings(false);
             LoadMWINI();
@@ -979,14 +981,14 @@ namespace MGEgui {
         }
 
         private void cbWindowed_CheckedChanged(object sender, EventArgs e) {
-            RegistryKey key = null;
             try {
-                key = Registry.LocalMachine.OpenSubKey(Statics.reg_mw, true);
-                if (key != null) {
-                    key.SetValue("Fullscreen", new byte [] { Convert.ToByte(!cbWindowed.Checked) });
-                    key.Close();
+                using (RegistryKey key = Statics.OpenMwRegKey(true)) {
+                    if (key != null) {
+                        key.SetValue("Fullscreen", new byte[] { Convert.ToByte(!cbWindowed.Checked) });
+                        key.Close();
+                    }
+                    cbBorderless.Enabled = cbWindowed.Checked;
                 }
-                cbBorderless.Enabled = cbWindowed.Checked;
             } catch {
                 MessageBox.Show(strings["RegNotWrit"], Statics.strings["Error"]);
             }
@@ -1366,14 +1368,14 @@ namespace MGEgui {
         private void UpdateFOV() {
             if (cbAutoFOV.Checked) {
                 try {
-                    RegistryKey key = Registry.LocalMachine.OpenSubKey(Statics.reg_mw);
+                    using (RegistryKey key = Statics.OpenMwRegKey()) {
+                        // Morrowind standard horizontal FOV is 75 degrees at 4:3 aspect ratio
+                        double basefov = 75.0 * Math.PI / 180.0;
+                        double aspect = (double)(int)key.GetValue("Screen Width") / (double)(int)key.GetValue("Screen Height");
+                        double x = 2.0 * Math.Atan((aspect / (4.0 / 3.0)) * Math.Tan(0.5 * basefov));
 
-                    // Morrowind standard horizontal FOV is 75 degrees at 4:3 aspect ratio
-                    double basefov = 75.0 * Math.PI / 180.0;
-                    double aspect = (double)(int)key.GetValue("Screen Width") / (double)(int)key.GetValue("Screen Height");
-                    double x = 2.0 * Math.Atan((aspect / (4.0 / 3.0)) * Math.Tan(0.5 * basefov));
-
-                    udFOV.Value = (Decimal)(x * 180.0 / Math.PI);
+                        udFOV.Value = (Decimal)(x * 180.0 / Math.PI);
+                    }
                 } catch {
                 }
             }

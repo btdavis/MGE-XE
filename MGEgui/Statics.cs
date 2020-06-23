@@ -17,7 +17,7 @@ using System.Threading;
 using MGEgui.DirectX;
 using MGEgui.Localization;
 using MGEgui.INI;
-
+using Microsoft.Win32;
 
 namespace MGEgui {
 
@@ -215,7 +215,12 @@ namespace MGEgui {
         public const string fn_stattex = "Data files/distantland/statics/textures";
         public const string pathShaders = @"data files\shaders\XEshaders";
         /* registry keys */
-        public const string reg_mw = @"SOFTWARE\WOW6432Node\Bethesda Softworks\Morrowind";
+        public static RegistryKey OpenMwRegKey(bool writable = false) {
+            // always open in 32 bit mode, because Morrowind is 32 bit
+            // the key is hidden under Wow6432Node by default
+            RegistryKey root = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
+            return root.OpenSubKey(@"Software\Bethesda Softworks\Morrowind", writable);
+        }
 
         public static string runDir;
 
