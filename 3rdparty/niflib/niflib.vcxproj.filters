@@ -63,9 +63,6 @@
     <ClCompile Include="src\niflib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\nifqhull.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ObjectRegistry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -85,150 +82,6 @@
       <Filter>Source Files\obj</Filter>
     </ClCompile>
     <ClCompile Include="src\obj\AvoidNode.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkAabbPhantom.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkBallAndSocketConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkBallSocketConstraintChain.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkBlendCollisionObject.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkBlendController.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkBoxShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkBreakableConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkBvTreeShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkCapsuleShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkCollisionObject.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkCompressedMeshShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkCompressedMeshShapeData.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkConvexListShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkConvexShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkConvexTransformShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkConvexVerticesShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkEntity.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkHingeConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkLimitedHingeConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkLiquidAction.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkListShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkMalleableConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkMeshShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkMoppBvTreeShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkMultiSphereShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkNiCollisionObject.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkNiTriStripsShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkOrientHingedBodyAction.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkPackedNiTriStripsShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkPCollisionObject.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkPhantom.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkPrismaticConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkRagdollConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkRefObject.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkRigidBody.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkRigidBodyT.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkSerializable.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkShapeCollection.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkShapePhantom.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkSimpleShapePhantom.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkSPCollisionObject.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkSphereRepShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkSphereShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkStiffSpringConstraint.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkTransformShape.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\bhkWorldObject.cpp">
       <Filter>Source Files\obj</Filter>
     </ClCompile>
     <ClCompile Include="src\obj\BSAnimNotes.cpp">
@@ -445,9 +298,6 @@
       <Filter>Source Files\obj</Filter>
     </ClCompile>
     <ClCompile Include="src\obj\HairShaderProperty.cpp">
-      <Filter>Source Files\obj</Filter>
-    </ClCompile>
-    <ClCompile Include="src\obj\hkPackedNiTriStripsData.cpp">
       <Filter>Source Files\obj</Filter>
     </ClCompile>
     <ClCompile Include="src\obj\Lighting30ShaderProperty.cpp">
@@ -1407,21 +1257,6 @@
     <ClCompile Include="src\gen\AVObject.cpp">
       <Filter>Source Files\gen</Filter>
     </ClCompile>
-    <ClCompile Include="src\gen\bhkCMSDMaterial.cpp">
-      <Filter>Source Files\gen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gen\bhkCMSDBigTris.cpp">
-      <Filter>Source Files\gen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gen\bhkCMSDChunk.cpp">
-      <Filter>Source Files\gen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gen\bhkCMSDData.cpp">
-      <Filter>Source Files\gen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gen\bhkCMSDTransform.cpp">
-      <Filter>Source Files\gen</Filter>
-    </ClCompile>
     <ClCompile Include="src\gen\BodyPartList.cpp">
       <Filter>Source Files\gen</Filter>
     </ClCompile>
@@ -1507,9 +1342,6 @@
       <Filter>Source Files\gen</Filter>
     </ClCompile>
     <ClCompile Include="src\gen\HingeDescriptor.cpp">
-      <Filter>Source Files\gen</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gen\hkTriangle.cpp">
       <Filter>Source Files\gen</Filter>
     </ClCompile>
     <ClCompile Include="src\gen\LimitedHingeDescriptor.cpp">
@@ -1719,150 +1551,6 @@
       <Filter>Header Files\obj</Filter>
     </ClInclude>
     <ClInclude Include="include\obj\AvoidNode.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkAabbPhantom.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkBallAndSocketConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkBallSocketConstraintChain.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkBlendCollisionObject.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkBlendController.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkBoxShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkBreakableConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkBvTreeShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkCapsuleShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkCollisionObject.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkCompressedMeshShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkCompressedMeshShapeData.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkConvexListShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkConvexShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkConvexTransformShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkConvexVerticesShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkEntity.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkHingeConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkLimitedHingeConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkLiquidAction.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkListShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkMalleableConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkMeshShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkMoppBvTreeShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkMultiSphereShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkNiCollisionObject.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkNiTriStripsShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkOrientHingedBodyAction.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkPackedNiTriStripsShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkPCollisionObject.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkPhantom.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkPrismaticConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkRagdollConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkRefObject.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkRigidBody.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkRigidBodyT.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkSerializable.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkShapeCollection.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkShapePhantom.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkSimpleShapePhantom.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkSPCollisionObject.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkSphereRepShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkSphereShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkStiffSpringConstraint.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkTransformShape.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\bhkWorldObject.h">
       <Filter>Header Files\obj</Filter>
     </ClInclude>
     <ClInclude Include="include\obj\BSAnimNotes.h">
@@ -2079,9 +1767,6 @@
       <Filter>Header Files\obj</Filter>
     </ClInclude>
     <ClInclude Include="include\obj\HairShaderProperty.h">
-      <Filter>Header Files\obj</Filter>
-    </ClInclude>
-    <ClInclude Include="include\obj\hkPackedNiTriStripsData.h">
       <Filter>Header Files\obj</Filter>
     </ClInclude>
     <ClInclude Include="include\obj\Lighting30ShaderProperty.h">
@@ -3041,21 +2726,6 @@
     <ClInclude Include="include\gen\AVObject.h">
       <Filter>Header Files\gen</Filter>
     </ClInclude>
-    <ClInclude Include="include\gen\bhkCMSDMaterial.h">
-      <Filter>Header Files\gen</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gen\bhkCMSDBigTris.h">
-      <Filter>Header Files\gen</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gen\bhkCMSDChunk.h">
-      <Filter>Header Files\gen</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gen\bhkCMSDData.h">
-      <Filter>Header Files\gen</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gen\bhkCMSDTransform.h">
-      <Filter>Header Files\gen</Filter>
-    </ClInclude>
     <ClInclude Include="include\gen\BodyPartList.h">
       <Filter>Header Files\gen</Filter>
     </ClInclude>
@@ -3141,9 +2811,6 @@
       <Filter>Header Files\gen</Filter>
     </ClInclude>
     <ClInclude Include="include\gen\HingeDescriptor.h">
-      <Filter>Header Files\gen</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gen\hkTriangle.h">
       <Filter>Header Files\gen</Filter>
     </ClInclude>
     <ClInclude Include="include\gen\KeyGroup.h">

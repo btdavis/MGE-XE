@@ -38,44 +38,52 @@
     <ProjectGuid>{19FD8EE6-79CC-4BAC-9744-D9573BE47C7E}</ProjectGuid>
     <RootNamespace>NIFlib</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug - DLL|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - DLL|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <UseOfMfc>Static</UseOfMfc>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Static|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Static|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug - DLL|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - DLL|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - Static|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug - Static|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -139,13 +147,12 @@
       <PreprocessorDefinitions>NIFLIB_STATIC_LINK;WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
       <OutputFile>lib/niflib_static_debug.lib</OutputFile>
@@ -161,13 +168,12 @@
       <PreprocessorDefinitions>NIFLIB_STATIC_LINK;WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
       <OutputFile>lib/niflib_static_debug_x64.lib</OutputFile>
@@ -179,12 +185,12 @@
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NIFLIB_STATIC_LINK;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
       <OutputFile>lib/niflib_static.lib</OutputFile>
@@ -199,13 +205,12 @@
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NIFLIB_STATIC_LINK;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
       <OutputFile>lib/niflib_static_x64.lib</OutputFile>
@@ -217,12 +222,11 @@
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NIFLIB_DLL;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <OutputFile>bin\niflib.dll</OutputFile>
@@ -239,12 +243,11 @@
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>BUILDING_NIFLIB_DLL;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <OutputFile>bin\niflib_x64.dll</OutputFile>
@@ -261,12 +264,11 @@
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <OutputFile>bin\niflib_debug.dll</OutputFile>
@@ -286,12 +288,11 @@
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <OutputFile>bin\niflib_debug_x64.dll</OutputFile>
@@ -301,7 +302,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\gen\bhkCMSDBigTris.cpp" />
     <ClCompile Include="src\gen\BoneLOD.cpp" />
     <ClCompile Include="src\gen\BSSegment.cpp" />
     <ClCompile Include="src\gen\SkinPartitionUnknownItem1.cpp" />
@@ -321,7 +321,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug - Static|x64'">
       </PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="src\nifqhull.cpp" />
     <ClCompile Include="src\ObjectRegistry.cpp" />
     <ClCompile Include="src\pch.cpp" />
     <ClCompile Include="src\RefObject.cpp" />
@@ -329,54 +328,6 @@
     <ClCompile Include="src\obj\AbstractAdditionalGeometryData.cpp" />
     <ClCompile Include="src\obj\ATextureRenderData.cpp" />
     <ClCompile Include="src\obj\AvoidNode.cpp" />
-    <ClCompile Include="src\obj\bhkAabbPhantom.cpp" />
-    <ClCompile Include="src\obj\bhkBallAndSocketConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkBallSocketConstraintChain.cpp" />
-    <ClCompile Include="src\obj\bhkBlendCollisionObject.cpp" />
-    <ClCompile Include="src\obj\bhkBlendController.cpp" />
-    <ClCompile Include="src\obj\bhkBoxShape.cpp" />
-    <ClCompile Include="src\obj\bhkBreakableConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkBvTreeShape.cpp" />
-    <ClCompile Include="src\obj\bhkCapsuleShape.cpp" />
-    <ClCompile Include="src\obj\bhkCollisionObject.cpp" />
-    <ClCompile Include="src\obj\bhkCompressedMeshShape.cpp" />
-    <ClCompile Include="src\obj\bhkCompressedMeshShapeData.cpp" />
-    <ClCompile Include="src\obj\bhkConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkConvexListShape.cpp" />
-    <ClCompile Include="src\obj\bhkConvexShape.cpp" />
-    <ClCompile Include="src\obj\bhkConvexTransformShape.cpp" />
-    <ClCompile Include="src\obj\bhkConvexVerticesShape.cpp" />
-    <ClCompile Include="src\obj\bhkEntity.cpp" />
-    <ClCompile Include="src\obj\bhkHingeConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkLimitedHingeConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkLiquidAction.cpp" />
-    <ClCompile Include="src\obj\bhkListShape.cpp" />
-    <ClCompile Include="src\obj\bhkMalleableConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkMeshShape.cpp" />
-    <ClCompile Include="src\obj\bhkMoppBvTreeShape.cpp" />
-    <ClCompile Include="src\obj\bhkMultiSphereShape.cpp" />
-    <ClCompile Include="src\obj\bhkNiCollisionObject.cpp" />
-    <ClCompile Include="src\obj\bhkNiTriStripsShape.cpp" />
-    <ClCompile Include="src\obj\bhkOrientHingedBodyAction.cpp" />
-    <ClCompile Include="src\obj\bhkPackedNiTriStripsShape.cpp" />
-    <ClCompile Include="src\obj\bhkPCollisionObject.cpp" />
-    <ClCompile Include="src\obj\bhkPhantom.cpp" />
-    <ClCompile Include="src\obj\bhkPrismaticConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkRagdollConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkRefObject.cpp" />
-    <ClCompile Include="src\obj\bhkRigidBody.cpp" />
-    <ClCompile Include="src\obj\bhkRigidBodyT.cpp" />
-    <ClCompile Include="src\obj\bhkSerializable.cpp" />
-    <ClCompile Include="src\obj\bhkShape.cpp" />
-    <ClCompile Include="src\obj\bhkShapeCollection.cpp" />
-    <ClCompile Include="src\obj\bhkShapePhantom.cpp" />
-    <ClCompile Include="src\obj\bhkSimpleShapePhantom.cpp" />
-    <ClCompile Include="src\obj\bhkSPCollisionObject.cpp" />
-    <ClCompile Include="src\obj\bhkSphereRepShape.cpp" />
-    <ClCompile Include="src\obj\bhkSphereShape.cpp" />
-    <ClCompile Include="src\obj\bhkStiffSpringConstraint.cpp" />
-    <ClCompile Include="src\obj\bhkTransformShape.cpp" />
-    <ClCompile Include="src\obj\bhkWorldObject.cpp" />
     <ClCompile Include="src\obj\BSAnimNotes.cpp" />
     <ClCompile Include="src\obj\BSBehaviorGraphExtraData.cpp" />
     <ClCompile Include="src\obj\BSBlastNode.cpp" />
@@ -449,7 +400,6 @@
     <ClCompile Include="src\obj\FxRadioButton.cpp" />
     <ClCompile Include="src\obj\FxWidget.cpp" />
     <ClCompile Include="src\obj\HairShaderProperty.cpp" />
-    <ClCompile Include="src\obj\hkPackedNiTriStripsData.cpp" />
     <ClCompile Include="src\obj\Lighting30ShaderProperty.cpp" />
     <ClCompile Include="src\obj\Ni3dsAlphaAnimator.cpp" />
     <ClCompile Include="src\obj\Ni3dsAnimationNode.cpp" />
@@ -769,10 +719,6 @@
     <ClCompile Include="src\gen\AdditionalDataInfo.cpp" />
     <ClCompile Include="src\gen\ArkTexture.cpp" />
     <ClCompile Include="src\gen\AVObject.cpp" />
-    <ClCompile Include="src\gen\bhkCMSDMaterial.cpp" />
-    <ClCompile Include="src\gen\bhkCMSDChunk.cpp" />
-    <ClCompile Include="src\gen\bhkCMSDData.cpp" />
-    <ClCompile Include="src\gen\bhkCMSDTransform.cpp" />
     <ClCompile Include="src\gen\BodyPartList.cpp" />
     <ClCompile Include="src\gen\BoundingBox.cpp" />
     <ClCompile Include="src\gen\BoundingVolume.cpp" />
@@ -802,7 +748,6 @@
     <ClCompile Include="src\gen\HalfSpaceBV.cpp" />
     <ClCompile Include="src\gen\Header.cpp" />
     <ClCompile Include="src\gen\HingeDescriptor.cpp" />
-    <ClCompile Include="src\gen\hkTriangle.cpp" />
     <ClCompile Include="src\gen\LimitedHingeDescriptor.cpp" />
     <ClCompile Include="src\gen\LODRange.cpp" />
     <ClCompile Include="src\gen\MatchGroup.cpp" />
@@ -848,7 +793,6 @@
     <ClCompile Include="TriStripper\tri_stripper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\gen\bhkCMSDBigTris.h" />
     <ClInclude Include="include\gen\BoneLOD.h" />
     <ClInclude Include="include\gen\BSSegment.h" />
     <ClInclude Include="include\gen\SkinPartitionUnknownItem1.h" />
@@ -874,54 +818,6 @@
     <ClInclude Include="include\obj\AbstractAdditionalGeometryData.h" />
     <ClInclude Include="include\obj\ATextureRenderData.h" />
     <ClInclude Include="include\obj\AvoidNode.h" />
-    <ClInclude Include="include\obj\bhkAabbPhantom.h" />
-    <ClInclude Include="include\obj\bhkBallAndSocketConstraint.h" />
-    <ClInclude Include="include\obj\bhkBallSocketConstraintChain.h" />
-    <ClInclude Include="include\obj\bhkBlendCollisionObject.h" />
-    <ClInclude Include="include\obj\bhkBlendController.h" />
-    <ClInclude Include="include\obj\bhkBoxShape.h" />
-    <ClInclude Include="include\obj\bhkBreakableConstraint.h" />
-    <ClInclude Include="include\obj\bhkBvTreeShape.h" />
-    <ClInclude Include="include\obj\bhkCapsuleShape.h" />
-    <ClInclude Include="include\obj\bhkCollisionObject.h" />
-    <ClInclude Include="include\obj\bhkCompressedMeshShape.h" />
-    <ClInclude Include="include\obj\bhkCompressedMeshShapeData.h" />
-    <ClInclude Include="include\obj\bhkConstraint.h" />
-    <ClInclude Include="include\obj\bhkConvexListShape.h" />
-    <ClInclude Include="include\obj\bhkConvexShape.h" />
-    <ClInclude Include="include\obj\bhkConvexTransformShape.h" />
-    <ClInclude Include="include\obj\bhkConvexVerticesShape.h" />
-    <ClInclude Include="include\obj\bhkEntity.h" />
-    <ClInclude Include="include\obj\bhkHingeConstraint.h" />
-    <ClInclude Include="include\obj\bhkLimitedHingeConstraint.h" />
-    <ClInclude Include="include\obj\bhkLiquidAction.h" />
-    <ClInclude Include="include\obj\bhkListShape.h" />
-    <ClInclude Include="include\obj\bhkMalleableConstraint.h" />
-    <ClInclude Include="include\obj\bhkMeshShape.h" />
-    <ClInclude Include="include\obj\bhkMoppBvTreeShape.h" />
-    <ClInclude Include="include\obj\bhkMultiSphereShape.h" />
-    <ClInclude Include="include\obj\bhkNiCollisionObject.h" />
-    <ClInclude Include="include\obj\bhkNiTriStripsShape.h" />
-    <ClInclude Include="include\obj\bhkOrientHingedBodyAction.h" />
-    <ClInclude Include="include\obj\bhkPackedNiTriStripsShape.h" />
-    <ClInclude Include="include\obj\bhkPCollisionObject.h" />
-    <ClInclude Include="include\obj\bhkPhantom.h" />
-    <ClInclude Include="include\obj\bhkPrismaticConstraint.h" />
-    <ClInclude Include="include\obj\bhkRagdollConstraint.h" />
-    <ClInclude Include="include\obj\bhkRefObject.h" />
-    <ClInclude Include="include\obj\bhkRigidBody.h" />
-    <ClInclude Include="include\obj\bhkRigidBodyT.h" />
-    <ClInclude Include="include\obj\bhkSerializable.h" />
-    <ClInclude Include="include\obj\bhkShape.h" />
-    <ClInclude Include="include\obj\bhkShapeCollection.h" />
-    <ClInclude Include="include\obj\bhkShapePhantom.h" />
-    <ClInclude Include="include\obj\bhkSimpleShapePhantom.h" />
-    <ClInclude Include="include\obj\bhkSPCollisionObject.h" />
-    <ClInclude Include="include\obj\bhkSphereRepShape.h" />
-    <ClInclude Include="include\obj\bhkSphereShape.h" />
-    <ClInclude Include="include\obj\bhkStiffSpringConstraint.h" />
-    <ClInclude Include="include\obj\bhkTransformShape.h" />
-    <ClInclude Include="include\obj\bhkWorldObject.h" />
     <ClInclude Include="include\obj\BSAnimNotes.h" />
     <ClInclude Include="include\obj\BSBehaviorGraphExtraData.h" />
     <ClInclude Include="include\obj\BSBlastNode.h" />
@@ -994,7 +890,6 @@
     <ClInclude Include="include\obj\FxRadioButton.h" />
     <ClInclude Include="include\obj\FxWidget.h" />
     <ClInclude Include="include\obj\HairShaderProperty.h" />
-    <ClInclude Include="include\obj\hkPackedNiTriStripsData.h" />
     <ClInclude Include="include\obj\Lighting30ShaderProperty.h" />
     <ClInclude Include="include\obj\Ni3dsAlphaAnimator.h" />
     <ClInclude Include="include\obj\Ni3dsAnimationNode.h" />
@@ -1314,10 +1209,6 @@
     <ClInclude Include="include\gen\AdditionalDataInfo.h" />
     <ClInclude Include="include\gen\ArkTexture.h" />
     <ClInclude Include="include\gen\AVObject.h" />
-    <ClInclude Include="include\gen\bhkCMSDMaterial.h" />
-    <ClInclude Include="include\gen\bhkCMSDChunk.h" />
-    <ClInclude Include="include\gen\bhkCMSDData.h" />
-    <ClInclude Include="include\gen\bhkCMSDTransform.h" />
     <ClInclude Include="include\gen\BodyPartList.h" />
     <ClInclude Include="include\gen\BoundingBox.h" />
     <ClInclude Include="include\gen\BoundingVolume.h" />
@@ -1347,7 +1238,6 @@
     <ClInclude Include="include\gen\HalfSpaceBV.h" />
     <ClInclude Include="include\gen\Header.h" />
     <ClInclude Include="include\gen\HingeDescriptor.h" />
-    <ClInclude Include="include\gen\hkTriangle.h" />
     <ClInclude Include="include\gen\KeyGroup.h" />
     <ClInclude Include="include\gen\LimitedHingeDescriptor.h" />
     <ClInclude Include="include\gen\LODRange.h" />
