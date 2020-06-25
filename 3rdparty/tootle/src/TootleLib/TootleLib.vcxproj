@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{d1177efe-41b0-4b38-a5f7-5042424ae5fb}</ProjectGuid>
+    <RootNamespace>TootleLib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\include</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>lib/tootlelib_static_debug.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\include</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>lib/tootlelib_static.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\include</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>lib/tootlelib_static_debug_x64.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\include</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>lib/tootlelib_static_x64.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="aligned_malloc.cpp" />
+    <ClCompile Include="clustering.cpp" />
+    <ClCompile Include="d3doverdrawwindow.cpp" />
+    <ClCompile Include="d3dwm.cpp" />
+    <ClCompile Include="error.c" />
+    <ClCompile Include="feedback.cpp" />
+    <ClCompile Include="fit.cpp" />
+    <ClCompile Include="gdiwm.cpp" />
+    <ClCompile Include="heap.c" />
+    <ClCompile Include="overdraw.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTBoundingBox.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTCamera.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTCore.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTCoreUtils.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTH2KDTreeBuilder.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTHeuristicKDTreeBuilder.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTKDTree.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTKDTreeBuilder.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTMesh.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTOrthoCamera.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTPPMImage.cpp" />
+    <ClCompile Include="RayTracer\JRT\JRTTriangleIntersection.cpp" />
+    <ClCompile Include="RayTracer\Math\JMLFuncs.cpp" />
+    <ClCompile Include="RayTracer\TootleRaytracer.cpp" />
+    <ClCompile Include="soup.cpp" />
+    <ClCompile Include="souptomesh.cpp" />
+    <ClCompile Include="Stripifier.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="tootlelib.cpp" />
+    <ClCompile Include="triorder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aligned_malloc.h" />
+    <ClInclude Include="bbox.h" />
+    <ClInclude Include="cloud.h" />
+    <ClInclude Include="clustering.h" />
+    <ClInclude Include="color.h" />
+    <ClInclude Include="d3doverdrawwindow.h" />
+    <ClInclude Include="d3dwindow.h" />
+    <ClInclude Include="d3dwm.h" />
+    <ClInclude Include="error.h" />
+    <ClInclude Include="feedback.h" />
+    <ClInclude Include="fit.h" />
+    <ClInclude Include="gdiwindow.h" />
+    <ClInclude Include="gdiwm.h" />
+    <ClInclude Include="heap.h" />
+    <ClInclude Include="include\tootlelib.h" />
+    <ClInclude Include="matrix.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="option.h" />
+    <ClInclude Include="overdraw.h" />
+    <ClInclude Include="quaternion.h" />
+    <ClInclude Include="RayTracer\JRT\JRTBoundingBox.h" />
+    <ClInclude Include="RayTracer\JRT\JRTCamera.h" />
+    <ClInclude Include="RayTracer\JRT\JRTCommon.h" />
+    <ClInclude Include="RayTracer\JRT\JRTCore.h" />
+    <ClInclude Include="RayTracer\JRT\JRTCoreUtils.h" />
+    <ClInclude Include="RayTracer\JRT\JRTH2KDTreeBuilder.h" />
+    <ClInclude Include="RayTracer\JRT\JRTHeuristicKDTreeBuilder.h" />
+    <ClInclude Include="RayTracer\JRT\JRTKDTree.h" />
+    <ClInclude Include="RayTracer\JRT\JRTKDTreeBuilder.h" />
+    <ClInclude Include="RayTracer\JRT\JRTMesh.h" />
+    <ClInclude Include="RayTracer\JRT\JRTOrthoCamera.h" />
+    <ClInclude Include="RayTracer\JRT\JRTPPMImage.h" />
+    <ClInclude Include="RayTracer\JRT\JRTTriangleIntersection.h" />
+    <ClInclude Include="RayTracer\Math\JML.h" />
+    <ClInclude Include="RayTracer\Math\JMLFuncs.h" />
+    <ClInclude Include="RayTracer\Math\JMLMatrix.h" />
+    <ClInclude Include="RayTracer\Math\JMLScalar.h" />
+    <ClInclude Include="RayTracer\Math\JMLSSEVec.h" />
+    <ClInclude Include="RayTracer\Math\JMLVec2.h" />
+    <ClInclude Include="RayTracer\Math\JMLVec3.h" />
+    <ClInclude Include="RayTracer\TootleRaytracer.h" />
+    <ClInclude Include="scalar.h" />
+    <ClInclude Include="soup.h" />
+    <ClInclude Include="souptomesh.h" />
+    <ClInclude Include="Stripifier.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="TootlePCH.h" />
+    <ClInclude Include="triorder.h" />
+    <ClInclude Include="vector.h" />
+    <ClInclude Include="viewpoints.h" />
+    <ClInclude Include="window.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
