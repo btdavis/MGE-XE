@@ -5,6 +5,17 @@
     <ClCompile Include="progmesh\CollapseTriangle.cpp" />
     <ClCompile Include="progmesh\CollapseVertex.cpp" />
     <ClCompile Include="progmesh\ProgMesh.cpp" />
+    <ClCompile Include="ExportedNode.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="ExportedNif.cpp" />
+    <ClCompile Include="LandMesh.cpp" />
+    <ClCompile Include="LargeTriangle.cpp" />
+    <ClCompile Include="RoamVarianceNode.cpp" />
+    <ClCompile Include="SplitTriangle.cpp" />
+    <ClCompile Include="HeightFieldSampler.cpp" />
+    <ClCompile Include="RoamTriangleNode.cpp" />
+    <ClCompile Include="RoamLandPatch.cpp" />
+    <ClCompile Include="RenderTriangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="exports.def" />
@@ -14,5 +25,17 @@
     <ClInclude Include="progmesh\CollapseVertex.h" />
     <ClInclude Include="progmesh\ProgMesh.h" />
     <ClInclude Include="DXVertex.h" />
+    <ClInclude Include="StaticType.h" />
+    <ClInclude Include="ExportedNode.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="ExportedNif.h" />
+    <ClInclude Include="LandMesh.h" />
+    <ClInclude Include="LargeTriangle.h" />
+    <ClInclude Include="RoamVarianceNode.h" />
+    <ClInclude Include="SplitTriangle.h" />
+    <ClInclude Include="HeightFieldSampler.h" />
+    <ClInclude Include="RoamTriangleNode.h" />
+    <ClInclude Include="RoamLandPatch.h" />
+    <ClInclude Include="RenderTriangle.h" />
   </ItemGroup>
 </Project>

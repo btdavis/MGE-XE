@@ -1,3 +1,5 @@
+#include "StdAfx.h"
+
 #include "CollapseTriangle.h"
 
 const double sqrt2 = 1.41421356;

@@ -5,7 +5,7 @@
 #include <map>
 #include <vector>
 
-#include "../../3rdparty/niflib/include/nif_math.h"
+#include "nif_math.h"
 
 #include "../DXVertex.h"
 #include "ProgMesh.h"

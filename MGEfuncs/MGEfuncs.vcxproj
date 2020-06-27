@@ -93,7 +93,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp14</LanguageStandard>
       <Optimization>Disabled</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
       <PreprocessorDefinitions>BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Debug";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -138,7 +138,7 @@
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <LanguageStandard>stdcpp14</LanguageStandard>
       <Optimization>Disabled</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
       <PreprocessorDefinitions>BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Debug";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -181,7 +181,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp14</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
       <PreprocessorDefinitions>NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Release";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -226,7 +226,7 @@
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp14</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
       <PreprocessorDefinitions>NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Release";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -261,17 +261,45 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExportedNif.cpp" />
+    <ClCompile Include="ExportedNode.cpp" />
+    <ClCompile Include="HeightFieldSampler.cpp" />
+    <ClCompile Include="LandMesh.cpp" />
+    <ClCompile Include="LargeTriangle.cpp" />
     <ClCompile Include="NifConverter.cpp" />
     <ClCompile Include="progmesh\CollapseTriangle.cpp" />
     <ClCompile Include="progmesh\CollapseVertex.cpp" />
     <ClCompile Include="progmesh\ProgMesh.cpp" />
+    <ClCompile Include="RenderTriangle.cpp" />
+    <ClCompile Include="RoamLandPatch.cpp" />
+    <ClCompile Include="RoamTriangleNode.cpp" />
+    <ClCompile Include="RoamVarianceNode.cpp" />
+    <ClCompile Include="SplitTriangle.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <None Include="exports.def" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DXVertex.h" />
+    <ClInclude Include="ExportedNif.h" />
+    <ClInclude Include="ExportedNode.h" />
+    <ClInclude Include="HeightFieldSampler.h" />
+    <ClInclude Include="LandMesh.h" />
+    <ClInclude Include="LargeTriangle.h" />
     <ClInclude Include="progmesh\CollapseTriangle.h" />
     <ClInclude Include="progmesh\CollapseVertex.h" />
     <ClInclude Include="progmesh\ProgMesh.h" />
+    <ClInclude Include="RenderTriangle.h" />
+    <ClInclude Include="RoamLandPatch.h" />
+    <ClInclude Include="RoamTriangleNode.h" />
+    <ClInclude Include="RoamVarianceNode.h" />
+    <ClInclude Include="SplitTriangle.h" />
+    <ClInclude Include="StaticType.h" />
+    <ClInclude Include="StdAfx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

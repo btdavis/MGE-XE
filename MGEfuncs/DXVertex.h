@@ -1,15 +1,13 @@
-#pragma once
+#ifndef DXVERTEX_H
+#define DXVERTEX_H
 
-#define WIN32_LEAN_AND_MEAN
-#include "../3rdparty/niflib/include/nif_math.h"
-
-using namespace Niflib;
+#include "nif_math.h"
 
 struct DXVertex {
-    Vector3 Position;
-    Vector3 Normal;
+    Niflib::Vector3 Position;
+    Niflib::Vector3 Normal;
     unsigned char Diffuse[4];
-    TexCoord texCoord;
+    Niflib::TexCoord texCoord;
 };
 
 struct DXCompressedVertex {
@@ -20,6 +18,8 @@ struct DXCompressedVertex {
 };
 
 struct DXCompressedLandVertex {
-    Vector3 Position;
+    Niflib::Vector3 Position;
     short texCoord[2];
 };
+
+#endif
