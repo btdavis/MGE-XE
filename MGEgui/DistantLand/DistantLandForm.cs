@@ -792,7 +792,7 @@ namespace MGEgui.DistantLand {
         void workerCreateStatics(object sender, System.ComponentModel.DoWorkEventArgs e) {
             CreateStaticsArgs args = (CreateStaticsArgs)e.Argument;
             List<string> warnings = new List<string>();
-            Dictionary<string, staticOverride> OverrideList = new Dictionary<string, staticOverride>();
+            Dictionary<string, StaticOverride> OverrideList = new Dictionary<string, StaticOverride>();
             Dictionary<string, bool> IgnoreList = new Dictionary<string, bool>();
             Dictionary<string, bool> CellList = new Dictionary<string, bool>();
             StaticsList.Clear();
@@ -835,12 +835,12 @@ namespace MGEgui.DistantLand {
                                             byte type;
                                             if (byte.TryParse(value, out type)) {
                                                 if (type != 3 && type <= 6) {
-                                                    OverrideList[line] = new staticOverride(type);
+                                                    OverrideList[line] = new StaticOverride(type);
                                                 } else if (type > 6) {
                                                     warnings.Add("Warning: Invalid type specified in statics list '" + overrideList + "' line '" + line + "'");
                                                 }
                                             } else {
-                                                OverrideList[mesh] = new staticOverride(value);
+                                                OverrideList[mesh] = new StaticOverride(value);
                                             }
                                         } else {
                                             warnings.Add("Warning: Failed to parse line in statics list '" + overrideList + "': '" + line + "'");
@@ -1042,7 +1042,7 @@ namespace MGEgui.DistantLand {
                             }
                             float size = -1;
                             if (OverrideList.ContainsKey(name)) {
-                                staticOverride so = OverrideList[name];
+                                StaticOverride so = OverrideList[name];
                                 if (!so.Ignore || so.NamesNoIgnore) {
                                     size = NativeMethods.ProcessNif(data, data.Length, so.overrideSimplify ? so.Simplify : simplify, args.MinSize, (byte)so.Type, (so.OldSimplify ? (byte)1 : (byte)0));
                                 }
@@ -1405,193 +1405,10 @@ namespace MGEgui.DistantLand {
         }
 
         /* Plugins tab properties */
-
-        private static string datafiles;
         private List<string> pluginDirs;
         private MWPlugins pluginList;
         private string[] preselectedPlugins;
         private bool pluginListChanged = false;
-
-        /* Plugins tab definitions */
-
-        private class MWPlugin {
-
-            public string Name;
-            public string ShortName;
-            public string FullName;
-            public bool ESM;
-            public DateTime LoadOrder;
-            public CheckState Checked;
-            public string Dir;
-
-            public MWPlugin(FileInfo file) {
-                ShortName = file.Name;
-                Name = file.Name;
-                FullName = file.FullName.ToLowerInvariant();
-                ESM = file.Extension.ToLowerInvariant() == ".esm";
-                LoadOrder = file.LastWriteTimeUtc;
-                Checked = CheckState.Unchecked;
-            }
-
-            public MWPlugin(FileInfo file, string dir) {
-                ShortName = file.Name;
-                Name = file.Name + " > " + dir;
-                FullName = file.FullName.ToLowerInvariant();
-                Dir = dir;
-                ESM = file.Extension.ToLowerInvariant() == ".esm";
-                LoadOrder = file.LastWriteTimeUtc;
-                Checked = CheckState.Unchecked;
-            }
-
-            public MWPlugin(FileInfo file, bool ESM) {
-                ShortName = file.Name;
-                Name = file.Name;
-                FullName = file.FullName.ToLowerInvariant();
-                this.ESM = ESM;
-                LoadOrder = file.LastWriteTimeUtc;
-                Checked = CheckState.Unchecked;
-            }
-
-            public MWPlugin(FileInfo file, string dir, bool ESM) {
-                ShortName = file.Name;
-                Name = file.Name + " > " + dir;
-                FullName = file.FullName.ToLowerInvariant();
-                Dir = dir;
-                this.ESM = ESM;
-                LoadOrder = file.LastWriteTimeUtc;
-                Checked = CheckState.Unchecked;
-            }
-
-        }
-
-        private class MWPlugins {
-
-            public Dictionary<string, MWPlugin> Plugins;
-            public List<string> Dirs;
-
-            public MWPlugins(string main, List<string> dirs) {
-                DirectoryInfo dir = new DirectoryInfo(main);
-                datafiles = dir.FullName.ToLowerInvariant();
-                while (dirs.IndexOf(datafiles) != -1) {
-                    dirs.Remove(datafiles);
-                }
-                FileInfo[] files;
-                Plugins = new Dictionary<string, MWPlugin>();
-                Dirs = new List<string>(dirs);
-                files = dir.GetFiles("*.esm");
-                foreach (FileInfo file in files) {
-                    Plugins.Add(file.Name.ToLowerInvariant(), new MWPlugin(file, true));
-                }
-                files = dir.GetFiles("*.esp");
-                foreach (FileInfo file in files) {
-                    Plugins.Add(file.Name.ToLowerInvariant(), new MWPlugin(file, false));
-                }
-                List<string> removeDirs = new List<string>();
-                foreach (string dirName in Dirs) {
-                    if (!addPluginsFromDir(dirName)) {
-                        removeDirs.Add(dirName);
-                    }
-                }
-                foreach (string dirName in removeDirs) {
-                    dirs.Remove(dirName);
-                }
-            }
-
-            public void SetDirs(List<string> dirs) {
-                foreach (string dirName in Dirs) {
-                    if (dirs.IndexOf(dirName) == -1) {
-                        List<string> entries = new List<string>();
-                        foreach (KeyValuePair<string, MWPlugin> entry in Plugins) {
-                            if (entry.Value.Dir != null && string.Equals(dirName, entry.Value.Dir, StringComparison.OrdinalIgnoreCase)) {
-                                entries.Add(entry.Key);
-                            }
-                        }
-                        foreach (string entry in entries) {
-                            Plugins.Remove(entry);
-                        }
-                    }
-                }
-                List<string> removeDirs = new List<string>();
-                foreach (string dirName in dirs) {
-                    if (Dirs.IndexOf(dirName) == -1) {
-                        if (!addPluginsFromDir(dirName)) {
-                            removeDirs.Add(dirName);
-                        }
-                    }
-                }
-                foreach (string dirName in removeDirs) {
-                    dirs.Remove(dirName);
-                }
-                Dirs.Clear();
-                Dirs.AddRange(dirs);
-            }
-
-            private bool addPluginsFromDir(string srcDir) {
-                DirectoryInfo dir = new DirectoryInfo(srcDir);
-                string casefoldDir = srcDir.ToLowerInvariant();
-                if (dir.Exists) {
-                    FileInfo[] files = dir.GetFiles("*.esm");
-                    foreach (FileInfo file in files) {
-                        Plugins.Add(file.Name.ToLowerInvariant() + " > " + casefoldDir, new MWPlugin(file, srcDir, true));
-                    }
-                    files = dir.GetFiles("*.esp");
-                    foreach (FileInfo file in files) {
-                        Plugins.Add(file.Name.ToLowerInvariant() + " > " + casefoldDir, new MWPlugin(file, srcDir, false));
-                    }
-                    return true;
-                }
-                return false;
-            }
-
-            public KeyValuePair<string, MWPlugin>[] ByName {
-                get {
-                    List<KeyValuePair<string, MWPlugin>> temp = new List<KeyValuePair<string, MWPlugin>>(Plugins);
-                    temp.Sort(delegate(KeyValuePair<string, MWPlugin> firstPair, KeyValuePair<string, MWPlugin> nextPair) {
-                        return string.Compare(firstPair.Value.ShortName, nextPair.Value.ShortName, StringComparison.CurrentCulture);
-                    });
-                    return temp.ToArray();
-                }
-            }
-
-            public KeyValuePair<string, MWPlugin>[] ByType {
-                get {
-                    List<KeyValuePair<string, MWPlugin>> temp = new List<KeyValuePair<string, MWPlugin>>(Plugins);
-                    temp.Sort(delegate(KeyValuePair<string, MWPlugin> firstPair, KeyValuePair<string, MWPlugin> nextPair) {
-                        if (firstPair.Value.ESM != nextPair.Value.ESM) {
-                            return firstPair.Value.ESM ? -1 : 1;
-                        }
-                        if (firstPair.Value.Dir != nextPair.Value.Dir) {
-                            return string.Compare(firstPair.Value.FullName, nextPair.Value.FullName, StringComparison.CurrentCulture);
-                        }
-                        return string.Compare(firstPair.Value.ShortName, nextPair.Value.ShortName, StringComparison.CurrentCulture);
-                    });
-                    return temp.ToArray();
-                }
-            }
-
-            public KeyValuePair<string, MWPlugin>[] ByLoadOrder {
-                get {
-                    List<KeyValuePair<string, MWPlugin>> temp = new List<KeyValuePair<string, MWPlugin>>(Plugins);
-                    temp.Sort(delegate(KeyValuePair<string, MWPlugin> firstPair, KeyValuePair<string, MWPlugin> nextPair) {
-                        if (firstPair.Value.ESM != nextPair.Value.ESM) {
-                            return firstPair.Value.ESM ? -1 : 1;
-                        }
-                        return firstPair.Value.LoadOrder.CompareTo(nextPair.Value.LoadOrder);
-                    });
-                    return temp.ToArray();
-                }
-            }
-
-            public string[] getSelected() {
-                List<string> s = new List<string>();
-                foreach (KeyValuePair<string, MWPlugin> temp in Plugins) {
-                    if (temp.Value.Checked == CheckState.Checked) {
-                        s.Add(temp.Key);
-                    }
-                }
-                return s.ToArray();
-            }
-        }
 
         /* Plugins tab handlers */
 
@@ -1699,7 +1516,7 @@ namespace MGEgui.DistantLand {
         }
 
         private void bPlugsDirs_Click(object sender, EventArgs e) {
-            DirectoriesForm dirsForm = new DirectoriesForm(datafiles, pluginDirs);
+            DirectoriesForm dirsForm = new DirectoriesForm(pluginList.DataFiles, pluginDirs);
             dirsForm.FormClosed += new FormClosedEventHandler(dirsForm_FormClosed);
             dirsForm.ShowDialog();
         }
@@ -1926,48 +1743,9 @@ namespace MGEgui.DistantLand {
             }
         }
 
-        private static void GenerateMesh(LAND land, string path) {
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
-            BinaryWriter bw = new BinaryWriter(File.Create(path));
-            for (int x = 0; x < 65; x++) {
-                for (int y = 0; y < 65; y++) {
-                    bw.Write((float)(x * 128));
-                    bw.Write((float)(y * 128));
-                    bw.Write((float)(land.Heights[x, y] * 8));
-                    bw.Write(land.Normals[x, y].X);
-                    bw.Write(land.Normals[x, y].Y);
-                    bw.Write(land.Normals[x, y].Z);
-                    // Need to offset the border texcoords slightly to avoid lines between meshes
-                    if (x == 0) {
-                        bw.Write(0.005f);
-                    } else if (x == 64) {
-                        bw.Write(0.997f);
-                    } else {
-                        bw.Write((float)x / 64.0f);
-                    }
-                    if (y == 0) {
-                        bw.Write(0.005f);
-                    } else if (y == 64) {
-                        bw.Write(0.997f);
-                    } else {
-                        bw.Write((float)y / 64.0f);
-                    }
-                }
-            }
-            bw.Close();
-        }
-
         /* Land mesh methods */
-
         private void GenerateWorldMesh(int detail, string path) {
             int vCount = 64 / (1 << detail);
-            float vSpacing = 128f * (float)(1 << detail);
-            int VertsAcross = (MapMaxX - MapMinX + 1) * vCount;
-            int VertsDown = (MapMaxY - MapMinY + 1) * vCount;
-            int tFaces = (VertsAcross - 1) * (VertsDown - 1) * 2;
-            int tVerts = VertsAcross * VertsDown;
-            float texMultX = 1 / (float)VertsAcross;
-            float texMultY = 1 / (float)VertsDown;
             // Generate optimized landscape mesh
             int MapSpanX = MapMaxX - MapMinX + 1;
             int MapSpanY = MapMaxY - MapMinY + 1;
@@ -2023,189 +1801,6 @@ namespace MGEgui.DistantLand {
         private readonly Dictionary<string, Dictionary<string, StaticReference>> UsedStaticsList = new Dictionary<string,Dictionary<string,StaticReference>>();
         private readonly Dictionary<string, uint> StaticMap = new Dictionary<string, uint>();
         private readonly Dictionary<string, bool> DisableScripts = new Dictionary<string, bool>();
-
-        /* Statics tab definitions */
-
-        public enum StaticType {
-            Auto = 0,
-            Near = 1,
-            Far = 2,
-            VeryFar = 3,
-            Grass = 4,
-            Tree = 5,
-            Building = 6
-        }
-
-        private struct StaticToRemove {
-
-            public readonly string worldspace;
-            public readonly string reference;
-
-            public StaticToRemove(string Worldspace, string Reference) {
-                worldspace = Worldspace;
-                reference = Reference;
-            }
-
-        }
-
-        private class Static {
-
-            public readonly string name;
-            public readonly string mesh;
-            public float size;
-
-            public Static(string Name, string Mesh) {
-                name = Name.ToLower(Statics.Culture);
-                mesh = Mesh.ToLower(Statics.Culture);
-                size = 0;
-            }
-
-        }
-
-        private class StaticReference {
-
-            public string name;
-            public float x, y, z;
-            public float yaw, pitch, roll;
-            public float scale;
-            public uint staticID;
-
-            public void SetID(Dictionary<string, Static> StaticsList, Dictionary<string, uint> StaticMap) {
-                string file = StaticsList[name].mesh;
-                if (StaticMap.ContainsKey(file)) {
-                    staticID = StaticMap[file];
-                } else {
-                    staticID = (uint)StaticMap.Count;
-                    StaticMap[file] = staticID;
-                }
-            }
-
-            public void Write(BinaryWriter bw) {
-                bw.Write(staticID);
-                bw.Write(x);
-                bw.Write(y);
-                bw.Write(z);
-                bw.Write(yaw);
-                bw.Write(pitch);
-                bw.Write(roll);
-                bw.Write(scale);
-            }
-
-        }
-
-        private struct staticOverride {
-
-            public bool Ignore;
-            public StaticType Type;
-            public bool OldSimplify;
-            public bool overrideSimplify;
-            public float Simplify;
-            public float Density;
-            public bool StaticsOnly;
-            public bool NoScript;
-            public bool NamesNoIgnore;
-
-            public staticOverride(byte value) {
-                OldSimplify = false;
-                Simplify = 1;
-                Density = -1;
-                overrideSimplify = false;
-                Ignore = false;
-                StaticsOnly = false;
-                Type = StaticType.Auto;
-                NoScript = false;
-                NamesNoIgnore = false;
-                switch (value) {
-                    case 0:
-                        Ignore = true;
-                        break;
-                    case 1:
-                        Type = StaticType.Near;
-                        break;
-                    case 2:
-                        Type = StaticType.Far;
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        overrideSimplify = true;
-                        Type = StaticType.Near;
-                        break;
-                    case 5:
-                        overrideSimplify = true;
-                        Type = StaticType.Far;
-                        break;
-                    case 6:
-                        overrideSimplify = true;
-                        break;
-                }
-            }
-
-            public staticOverride(string value) {
-                Ignore = false;
-                Type = StaticType.Auto;
-                OldSimplify = false;
-                overrideSimplify = false;
-                Simplify = 1;
-                Density = -1;
-                StaticsOnly = false;
-                NoScript = false;
-                NamesNoIgnore = false;
-                string[] keys = value.ToLowerInvariant().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (string s in keys) {
-                    if (s == "ignore") {
-                        Ignore = true;
-                    } else if (s == "near") {
-                        Type = StaticType.Near;
-                    } else if (s == "auto") {
-                        Type = StaticType.Auto;
-                    } else if (s == "far") {
-                        Type = StaticType.Far;
-                    } else if (s == "very_far") {
-                        Type = StaticType.VeryFar;
-                    } else if (s.StartsWith("grass")) {
-                        float percent;
-                        Type = StaticType.Grass;
-                        if (s.Length > 6 && float.TryParse(s.Remove(0, 6), out percent) && percent >= 0) {
-                            if (percent > 100) {
-                                Density = 1.0f;
-                            } else {
-                                Density = percent / 100.0f;
-                            }
-                        }
-                    } else if (s == "tree") {
-                        Type = StaticType.Tree;
-                    } else if (s == "building") {
-                        Type = StaticType.Building;
-                    } else if (s == "no_script") {
-                        NoScript = true;
-                    } else if (s == "use_old_reduction") {
-                        OldSimplify = true;
-                    } else if (s.StartsWith("reduction_")) {
-                        float percent;
-                        if (float.TryParse(s.Remove(0, 10), out percent) && percent >= 0 && percent <= 100) {
-                            overrideSimplify = true;
-                            Simplify = percent / 100.0f;
-                        }
-                    } else if (s == "static_only") {
-                        StaticsOnly = true;
-                    }
-                }
-            }
-
-            public staticOverride(staticOverride value, bool enabledInNames) {
-                OldSimplify = value.OldSimplify;
-                Simplify = value.Simplify;
-                Density = value.Density;
-                overrideSimplify = value.overrideSimplify;
-                Ignore = value.Ignore;
-                StaticsOnly = value.StaticsOnly;
-                Type = value.Type;
-                NoScript = value.NoScript;
-                NamesNoIgnore = enabledInNames;
-            }
-
-        }
 
         /* Statics tab handlers */
 
@@ -2306,7 +1901,7 @@ namespace MGEgui.DistantLand {
 
         /* Statics tab methods */
 
-        private void ParseFileForDisableScripts(BinaryReader br, Dictionary<string, staticOverride> OverrideList) {
+        private void ParseFileForDisableScripts(BinaryReader br, Dictionary<string, StaticOverride> OverrideList) {
             RecordReader rr = new RecordReader(br);
             while (rr.NextRecord()) {
                 if (rr.Tag == "SCPT") {
@@ -2334,7 +1929,7 @@ namespace MGEgui.DistantLand {
             }
         }
 
-        private void ParseFileForStatics(BinaryReader br, Dictionary<string, staticOverride> OverrideList, bool activators, bool includemisc, Dictionary<string, bool> IgnoreList) {
+        private void ParseFileForStatics(BinaryReader br, Dictionary<string, StaticOverride> OverrideList, bool activators, bool includemisc, Dictionary<string, bool> IgnoreList) {
             int DEBUG_statics = 0;
             int DEBUG_ignored = 0;
             // Look for any scripts that might be disabling activators
@@ -2370,7 +1965,7 @@ namespace MGEgui.DistantLand {
                             if (!IgnoreList[name]) {
                                 StaticsList[name] = new Static(name, model);
                                 if (OverrideList != null && OverrideList.ContainsKey(model) && OverrideList[model].Ignore) {
-                                    OverrideList[model] = new staticOverride(OverrideList[model], true);
+                                    OverrideList[model] = new StaticOverride(OverrideList[model], true);
                                     if (DEBUG) {
                                         DEBUG_statics++;
                                         continue;
