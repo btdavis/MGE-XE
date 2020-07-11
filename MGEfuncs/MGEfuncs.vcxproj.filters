@@ -2,40 +2,100 @@
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="NifConverter.cpp" />
-    <ClCompile Include="progmesh\CollapseTriangle.cpp" />
-    <ClCompile Include="progmesh\CollapseVertex.cpp" />
-    <ClCompile Include="progmesh\ProgMesh.cpp" />
-    <ClCompile Include="ExportedNode.cpp" />
     <ClCompile Include="StdAfx.cpp" />
-    <ClCompile Include="ExportedNif.cpp" />
-    <ClCompile Include="LandMesh.cpp" />
-    <ClCompile Include="LargeTriangle.cpp" />
-    <ClCompile Include="RoamVarianceNode.cpp" />
-    <ClCompile Include="SplitTriangle.cpp" />
-    <ClCompile Include="HeightFieldSampler.cpp" />
-    <ClCompile Include="RoamTriangleNode.cpp" />
-    <ClCompile Include="RoamLandPatch.cpp" />
-    <ClCompile Include="RenderTriangle.cpp" />
+    <ClCompile Include="HeightFieldSampler.cpp">
+      <Filter>TesselateLandscape</Filter>
+    </ClCompile>
+    <ClCompile Include="RoamLandPatch.cpp">
+      <Filter>TesselateLandscape</Filter>
+    </ClCompile>
+    <ClCompile Include="RoamTriangleNode.cpp">
+      <Filter>TesselateLandscape</Filter>
+    </ClCompile>
+    <ClCompile Include="RoamVarianceNode.cpp">
+      <Filter>TesselateLandscape</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTriangle.cpp">
+      <Filter>TesselateLandscape</Filter>
+    </ClCompile>
+    <ClCompile Include="progmesh\ProgMesh.cpp">
+      <Filter>ProcessNif</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportedNode.cpp">
+      <Filter>ProcessNif</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportedNif.cpp">
+      <Filter>ProcessNif</Filter>
+    </ClCompile>
+    <ClCompile Include="LandMesh.cpp">
+      <Filter>TesselateLandscape</Filter>
+    </ClCompile>
+    <ClCompile Include="SplitTriangle.cpp">
+      <Filter>ProcessNif</Filter>
+    </ClCompile>
+    <ClCompile Include="LargeTriangle.cpp">
+      <Filter>ProcessNif</Filter>
+    </ClCompile>
+    <ClCompile Include="progmesh\CollapseTriangle.cpp">
+      <Filter>ProcessNif</Filter>
+    </ClCompile>
+    <ClCompile Include="progmesh\CollapseVertex.cpp">
+      <Filter>ProcessNif</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="exports.def" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="progmesh\CollapseTriangle.h" />
-    <ClInclude Include="progmesh\CollapseVertex.h" />
-    <ClInclude Include="progmesh\ProgMesh.h" />
     <ClInclude Include="DXVertex.h" />
     <ClInclude Include="StaticType.h" />
-    <ClInclude Include="ExportedNode.h" />
     <ClInclude Include="StdAfx.h" />
-    <ClInclude Include="ExportedNif.h" />
-    <ClInclude Include="LandMesh.h" />
-    <ClInclude Include="LargeTriangle.h" />
-    <ClInclude Include="RoamVarianceNode.h" />
-    <ClInclude Include="SplitTriangle.h" />
-    <ClInclude Include="HeightFieldSampler.h" />
-    <ClInclude Include="RoamTriangleNode.h" />
-    <ClInclude Include="RoamLandPatch.h" />
-    <ClInclude Include="RenderTriangle.h" />
+    <ClInclude Include="HeightFieldSampler.h">
+      <Filter>TesselateLandscape</Filter>
+    </ClInclude>
+    <ClInclude Include="RoamLandPatch.h">
+      <Filter>TesselateLandscape</Filter>
+    </ClInclude>
+    <ClInclude Include="RoamTriangleNode.h">
+      <Filter>TesselateLandscape</Filter>
+    </ClInclude>
+    <ClInclude Include="RoamVarianceNode.h">
+      <Filter>TesselateLandscape</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTriangle.h">
+      <Filter>TesselateLandscape</Filter>
+    </ClInclude>
+    <ClInclude Include="progmesh\ProgMesh.h">
+      <Filter>ProcessNif</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportedNode.h">
+      <Filter>ProcessNif</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportedNif.h">
+      <Filter>ProcessNif</Filter>
+    </ClInclude>
+    <ClInclude Include="LandMesh.h">
+      <Filter>TesselateLandscape</Filter>
+    </ClInclude>
+    <ClInclude Include="SplitTriangle.h">
+      <Filter>ProcessNif</Filter>
+    </ClInclude>
+    <ClInclude Include="LargeTriangle.h">
+      <Filter>ProcessNif</Filter>
+    </ClInclude>
+    <ClInclude Include="progmesh\CollapseTriangle.h">
+      <Filter>ProcessNif</Filter>
+    </ClInclude>
+    <ClInclude Include="progmesh\CollapseVertex.h">
+      <Filter>ProcessNif</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="TesselateLandscape">
+      <UniqueIdentifier>{2dabf1f7-71ee-4789-992e-c3b197da0b4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProcessNif">
+      <UniqueIdentifier>{c2c53ae4-a764-4d33-af59-15e07f8b6ca8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
