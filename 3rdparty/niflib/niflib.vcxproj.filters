@@ -1482,9 +1482,6 @@
     <ClCompile Include="src\gen\BoneLOD.cpp">
       <Filter>Source Files\gen</Filter>
     </ClCompile>
-    <ClCompile Include="src\gen\bhkCMSDBigTris.cpp">
-      <Filter>Source Files\gen</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\obj\BSMultiBoundData.h">
@@ -2959,9 +2956,6 @@
     </ClInclude>
     <ClInclude Include="NvTriStrip\VertexCache.h">
       <Filter>Header Files\NvTriStrip</Filter>
-    </ClInclude>
-    <ClInclude Include="include\gen\bhkCMSDBigTris.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gen\SkinPartitionUnknownItem1.h">
       <Filter>Header Files\gen</Filter>

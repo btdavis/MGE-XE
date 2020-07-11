@@ -10,6 +10,110 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mge\configinternal.h" />
+    <ClInclude Include="mge\configuration.h" />
+    <ClInclude Include="mge\distantland.h" />
+    <ClInclude Include="mge\distantshader.h" />
+    <ClInclude Include="mge\dlformat.h" />
+    <ClInclude Include="mge\dlmath.h" />
+    <ClInclude Include="mge\doublesurface.h" />
+    <ClInclude Include="mge\ffeshader.h" />
+    <ClInclude Include="mge\inidata.h" />
+    <ClInclude Include="mge\memorypool.h" />
+    <ClInclude Include="mge\mged3d8device.h" />
+    <ClInclude Include="mge\mgedinput.h" />
+    <ClInclude Include="mge\mgedirect3d8.h" />
+    <ClInclude Include="mge\mgeversion.h" />
+    <ClInclude Include="mge\mmefunctiondefs.h" />
+    <ClInclude Include="mge\morrowindbsa.h" />
+    <ClInclude Include="mge\mwbridge.h" />
+    <ClInclude Include="mge\mwinitpatch.h" />
+    <ClInclude Include="mge\postshaders.h" />
+    <ClInclude Include="mge\quadtree.h" />
+    <ClInclude Include="mge\specificrender.h" />
+    <ClInclude Include="mge\statusoverlay.h" />
+    <ClInclude Include="mge\userhud.h" />
+    <ClInclude Include="mge\videobackground.h" />
+    <ClInclude Include="mwse\funccamera.h" />
+    <ClInclude Include="mwse\funcentity.h" />
+    <ClInclude Include="mwse\funcgeneral.h" />
+    <ClInclude Include="mwse\funcgmst.h" />
+    <ClInclude Include="mwse\funchud.h" />
+    <ClInclude Include="mwse\funcinput.h" />
+    <ClInclude Include="mwse\funcmwui.h" />
+    <ClInclude Include="mwse\funcphysics.h" />
+    <ClInclude Include="mwse\funcshader.h" />
+    <ClInclude Include="mwse\funcweather.h" />
+    <ClInclude Include="mwse\mgebridge.h" />
+    <ClInclude Include="mwse\mwseinstruction.h" />
+    <ClInclude Include="mwse\VMTYPES.h" />
+    <ClInclude Include="proxydx\d3d8device.h" />
+    <ClInclude Include="proxydx\d3d8header.h" />
+    <ClInclude Include="proxydx\d3d8interface.h" />
+    <ClInclude Include="proxydx\d3d8surface.h" />
+    <ClInclude Include="proxydx\d3d8texture.h" />
+    <ClInclude Include="proxydx\d3d9header.h" />
+    <ClInclude Include="proxydx\direct3d8.h" />
+    <ClInclude Include="proxydx\directin8.h" />
+    <ClInclude Include="support\log.h" />
+    <ClInclude Include="support\pngsave.h" />
+    <ClInclude Include="support\timing.h" />
+    <ClInclude Include="support\winheader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mge\configuration.cpp" />
+    <ClCompile Include="mge\distantinit.cpp" />
+    <ClCompile Include="mge\distantland.cpp" />
+    <ClCompile Include="mge\dlmath.cpp" />
+    <ClCompile Include="mge\ffeshader.cpp" />
+    <ClCompile Include="mge\macrofunctions.cpp" />
+    <ClCompile Include="mge\memorypool.cpp" />
+    <ClCompile Include="mge\mged3d8device.cpp" />
+    <ClCompile Include="mge\mgedinput.cpp" />
+    <ClCompile Include="mge\mgedirect3d8.cpp" />
+    <ClCompile Include="mge\mgedxwrap.cpp" />
+    <ClCompile Include="mge\morrowindbsa.cpp" />
+    <ClCompile Include="mge\mwbridge.cpp" />
+    <ClCompile Include="mge\mwinitpatch.cpp" />
+    <ClCompile Include="mge\postshaders.cpp" />
+    <ClCompile Include="mge\quadtree.cpp" />
+    <ClCompile Include="mge\renderdepth.cpp" />
+    <ClCompile Include="mge\renderexterior.cpp" />
+    <ClCompile Include="mge\rendergrass.cpp" />
+    <ClCompile Include="mge\rendershadow.cpp" />
+    <ClCompile Include="mge\renderwater.cpp" />
+    <ClCompile Include="mge\specificrender.cpp" />
+    <ClCompile Include="mge\statusoverlay.cpp" />
+    <ClCompile Include="mge\userhud.cpp" />
+    <ClCompile Include="mge\videobackground.cpp" />
+    <ClCompile Include="mwse\funccamera.cpp" />
+    <ClCompile Include="mwse\funcentity.cpp" />
+    <ClCompile Include="mwse\funcgeneral.cpp" />
+    <ClCompile Include="mwse\funcgmst.cpp" />
+    <ClCompile Include="mwse\funchud.cpp" />
+    <ClCompile Include="mwse\funcinput.cpp" />
+    <ClCompile Include="mwse\funcmwui.cpp" />
+    <ClCompile Include="mwse\funcphysics.cpp" />
+    <ClCompile Include="mwse\funcshader.cpp" />
+    <ClCompile Include="mwse\funcweather.cpp" />
+    <ClCompile Include="mwse\mgebridge.cpp" />
+    <ClCompile Include="mwse\mwseinstruction.cpp" />
+    <ClCompile Include="proxydx\d3d8device.cpp" />
+    <ClCompile Include="proxydx\d3d8surface.cpp" />
+    <ClCompile Include="proxydx\d3d8texture.cpp" />
+    <ClCompile Include="proxydx\dinput8.cpp" />
+    <ClCompile Include="proxydx\direct3d8.cpp" />
+    <ClCompile Include="proxydx\dxguid.cpp" />
+    <ClCompile Include="support\log.cpp" />
+    <ClCompile Include="support\pngsave.cpp" />
+    <ClCompile Include="support\timing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="exports.def" />
+    <None Include="proxydx\d3d8header.inl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D1AECFBC-19F1-3F89-9F4B-64B8CC205629}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
@@ -141,56 +245,6 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="support\log.cpp" />
-    <ClCompile Include="support\pngsave.cpp" />
-    <ClCompile Include="support\timing.cpp" />
-    <ClCompile Include="mge\dlmath.cpp" />
-    <ClCompile Include="mge\memorypool.cpp" />
-    <ClCompile Include="mge\morrowindbsa.cpp" />
-    <ClCompile Include="mge\configuration.cpp" />
-    <ClCompile Include="mge\distantinit.cpp" />
-    <ClCompile Include="mge\distantland.cpp" />
-    <ClCompile Include="mge\ffeshader.cpp" />
-    <ClCompile Include="mge\macrofunctions.cpp" />
-    <ClCompile Include="mge\mged3d8device.cpp" />
-    <ClCompile Include="mge\mgedinput.cpp" />
-    <ClCompile Include="mge\mgedirect3d8.cpp" />
-    <ClCompile Include="mge\mgedxwrap.cpp" />
-    <ClCompile Include="mge\mwbridge.cpp" />
-    <ClCompile Include="mge\postshaders.cpp" />
-    <ClCompile Include="mge\quadtree.cpp" />
-    <ClCompile Include="mge\renderdepth.cpp" />
-    <ClCompile Include="mge\renderexterior.cpp" />
-    <ClCompile Include="mge\rendergrass.cpp" />
-    <ClCompile Include="mge\rendershadow.cpp" />
-    <ClCompile Include="mge\renderwater.cpp" />
-    <ClCompile Include="mge\statusoverlay.cpp" />
-    <ClCompile Include="mge\userhud.cpp" />
-    <ClCompile Include="mge\videobackground.cpp" />
-    <ClCompile Include="mge\specificrender.cpp" />
-    <ClCompile Include="mge\mwinitpatch.cpp" />
-    <ClCompile Include="mwse\funcgeneral.cpp" />
-    <ClCompile Include="mwse\funcgmst.cpp" />
-    <ClCompile Include="mwse\funchud.cpp" />
-    <ClCompile Include="mwse\funcweather.cpp" />
-    <ClCompile Include="mwse\funcshader.cpp" />
-    <ClCompile Include="mwse\funccamera.cpp" />
-    <ClCompile Include="mwse\funcinput.cpp" />
-    <ClCompile Include="mwse\funcentity.cpp" />
-    <ClCompile Include="mwse\funcmwui.cpp" />
-    <ClCompile Include="mwse\funcphysics.cpp" />
-    <ClCompile Include="mwse\mgebridge.cpp" />
-    <ClCompile Include="mwse\mwseinstruction.cpp" />
-    <ClCompile Include="proxydx\d3d8device.cpp" />
-    <ClCompile Include="proxydx\d3d8surface.cpp" />
-    <ClCompile Include="proxydx\d3d8texture.cpp" />
-    <ClCompile Include="proxydx\dinput8.cpp" />
-    <ClCompile Include="proxydx\direct3d8.cpp" />
-    <ClCompile Include="proxydx\dxguid.cpp" />
-    <ClCompile Include="main.cpp" />
-    <None Include="exports.def" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
