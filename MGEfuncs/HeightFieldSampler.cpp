@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "HeightFieldSampler.h"
 
 using namespace Niflib;

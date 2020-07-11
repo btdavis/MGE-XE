@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "LandMesh.h"
 #include "DXVertex.h"
 

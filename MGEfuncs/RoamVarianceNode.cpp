@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "RoamVarianceNode.h"
 #include "HeightFieldSampler.h"
 

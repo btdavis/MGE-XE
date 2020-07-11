@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "SplitTriangle.h"
 
 using namespace Niflib;

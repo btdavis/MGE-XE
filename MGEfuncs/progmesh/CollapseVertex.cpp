@@ -1,5 +1,3 @@
-#include "StdAfx.h"
-
 #include "CollapseVertex.h"
 
 namespace Niflib {

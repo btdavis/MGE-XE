@@ -1,5 +1,3 @@
-#include "StdAfx.h"
-
 #include "ProgMesh.h"
 
 namespace Niflib {

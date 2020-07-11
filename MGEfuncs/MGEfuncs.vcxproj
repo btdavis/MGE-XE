@@ -99,6 +99,7 @@
       <PreprocessorDefinitions>BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Debug";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ForcedIncludeFiles>StdAfx.h</ForcedIncludeFiles>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Debug\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -144,6 +145,7 @@
       <PreprocessorDefinitions>BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR="Debug";MGEfuncs_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ForcedIncludeFiles>StdAfx.h</ForcedIncludeFiles>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Debug\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -189,6 +191,7 @@
       <DebugInformationFormat>
       </DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ForcedIncludeFiles>StdAfx.h</ForcedIncludeFiles>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Release\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -234,6 +237,7 @@
       <DebugInformationFormat>
       </DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ForcedIncludeFiles>StdAfx.h</ForcedIncludeFiles>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;BUILD_DLL;NIFLIB_STATIC_LINK;CMAKE_INTDIR=\"Release\";MGEfuncs_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>

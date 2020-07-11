@@ -1,5 +1,3 @@
-#include "StdAfx.h"
-
 #include "niflib.h"
 #include "nif_math.h"
 

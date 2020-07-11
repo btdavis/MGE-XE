@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "RoamLandPatch.h"
 #include "RoamVarianceNode.h"
 #include "RenderTriangle.h"

@@ -1,5 +1,3 @@
-#include "StdAfx.h"
-
 #include "nif_math.h"
 #include "ExportedNode.h"
 #include "progmesh/ProgMesh.h"

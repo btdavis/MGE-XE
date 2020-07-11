@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "LargeTriangle.h"
 
 LargeTriangle::LargeTriangle() {}
