@@ -244,13 +244,15 @@ namespace MGEgui {
 
         public static bool ShowDialog(out Point p, out int refresh, bool Windowed) {
             // Fetch data from the registry
-            RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Software\Bethesda Softworks\Morrowind");
-            sWidth = (int)key.GetValue("Screen Width", 640);
-            sHeight = (int)key.GetValue("Screen Height", 480);
-            sRefresh = (int)key.GetValue("Refresh Rate", 0);
+            using (RegistryKey key = Statics.OpenMwRegKey(false))
+            {
+                sWidth = (int)key.GetValue("Screen Width", 640);
+                sHeight = (int)key.GetValue("Screen Height", 480);
+                sRefresh = (int)key.GetValue("Refresh Rate", 0);
+            }
+
             Adaptor = DirectX.DXMain.Adapter;
             Fullscreen = !Windowed;
-            key.Close();
 
             // Get the list of valid resolutions
             Resolutions = new List<Resolution>();
@@ -262,17 +264,21 @@ namespace MGEgui {
             ResolutionForm rf = new ResolutionForm();
             if (rf.ShowDialog() == DialogResult.OK) {
                 // Write new data to the registry
-                try {
-                    key = Registry.LocalMachine.OpenSubKey(@"Software\Bethesda Softworks\Morrowind", true);
-                } catch {
+                try
+                {
+                    using (RegistryKey key = Statics.OpenMwRegKey(true))
+                    {
+                        key.SetValue("Screen Width", sWidth);
+                        key.SetValue("Screen Height", sHeight);
+                        key.SetValue("Refresh Rate", sRefresh);
+                    }
+                    
+                } 
+                catch (Exception)
+                {
                     MessageBox.Show(Statics.strings["UnableToWriteReg"], Statics.strings["Error"]);
                 }
-                if (key != null) {
-                    key.SetValue("Screen Width", sWidth);
-                    key.SetValue("Screen Height", sHeight);
-                    key.SetValue("Refresh Rate", sRefresh);
-                    key.Close();
-                }
+
                 // Return
                 p = new Point(sWidth, sHeight);
                 refresh = sRefresh;
